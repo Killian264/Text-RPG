@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Killian Text RPG", "Killian Text RPG\Killian Text RPG.csproj", "{10FFDDEB-8DB4-45DE-ACBD-CFE64F7E871C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3EFC133C-10D3-45DB-A233-0E26EC881DB6}"
+	ProjectSection(SolutionItems) = preProject
+		PlayerClasses\Dwarf.cs = PlayerClasses\Dwarf.cs
+		PlayerClasses\Elf.cs = PlayerClasses\Elf.cs
+		PlayerClasses\Human.cs = PlayerClasses\Human.cs
+		PlayerClasses\Mage.cs = PlayerClasses\Mage.cs
+		PlayerClasses\Player.cs = PlayerClasses\Player.cs
+		PlayerClasses\Rogue.cs = PlayerClasses\Rogue.cs
+		PlayerClasses\Warrior.cs = PlayerClasses\Warrior.cs
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10FFDDEB-8DB4-45DE-ACBD-CFE64F7E871C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10FFDDEB-8DB4-45DE-ACBD-CFE64F7E871C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10FFDDEB-8DB4-45DE-ACBD-CFE64F7E871C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10FFDDEB-8DB4-45DE-ACBD-CFE64F7E871C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D04369BA-17C8-4AFF-9033-0A25D2324844}
+	EndGlobalSection
+EndGlobal
