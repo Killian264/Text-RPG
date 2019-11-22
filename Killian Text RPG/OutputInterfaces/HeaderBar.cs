@@ -50,6 +50,30 @@ namespace Killian_Text_RPG.OutputInterfaces
             Console.Write("\n");
             Console.Write("------------------------------------------------------------------------------------------------------------------------");
         }
+        public delegate void Function(string line);
+        public static void BasicInterfaceDelegate(Player player, Function f, string line)
+        {
+            Console.Clear();
+            Console.Write("------------------------------------------------------------------------------------------------------------------------");
+            Console.Write("\n");
+            Console.Write("  Name: " + player.Name + "  \t  HP: " + player.CurrentHealth + "/" + player.Constitution + "  \t  Level: " + player.Level +
+                "  \t  EXP: " + player.ExpCurrent + "/" + player.ExpNextLevel + "  \t  Class:" + player.Class + "  \t  Race: " + player.Type + " \n");
+            Console.Write("\n");
+            Console.Write("------------------------------------------------------------------------------------------------------------------------");
+            f(line);
+        }
+        public delegate void FunctionParams(string[] lines);
+        public static void BasicInterfaceDelegateParams(Player player, FunctionParams f, params string[] line)
+        {
+            Console.Clear();
+            Console.Write("------------------------------------------------------------------------------------------------------------------------");
+            Console.Write("\n");
+            Console.Write("  Name: " + player.Name + "  \t  HP: " + player.CurrentHealth + "/" + player.Constitution + "  \t  Level: " + player.Level +
+                "  \t  EXP: " + player.ExpCurrent + "/" + player.ExpNextLevel + "  \t  Class:" + player.Class + "  \t  Race: " + player.Type + " \n");
+            Console.Write("\n");
+            Console.Write("------------------------------------------------------------------------------------------------------------------------");
+            f(line);
+        }
 
     }
 }

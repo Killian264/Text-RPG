@@ -22,7 +22,7 @@ namespace Killian_Text_RPG
         {
             Name = name;
 
-            // Rogue Stats
+            // Warrior Stats
             BaseAttackDamage += 0;
             Intelligence += 0;
             Strength += 6;

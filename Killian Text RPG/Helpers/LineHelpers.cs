@@ -43,6 +43,13 @@ namespace Killian_Text_RPG.Helpers
             }
             Console.Write("\n");
         }
+        public static void PrintLine(params string[] lines)
+        {
+            foreach (string line in lines)
+            {
+                PrintLine(line);
+            }
+        }
         public static void LinePrintwithContinue(string line)
         {
             Print(line);
