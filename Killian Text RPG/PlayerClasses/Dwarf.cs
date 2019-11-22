@@ -17,7 +17,22 @@ namespace Killian_Text_RPG
 		}
         public Dwarf()
         {
-            return;
+            Level = 1;
+            Defence = 5;
+            CurrentHealth = 20;
+            Constitution = 20;
+            BaseAttackDamage = 10;
+            Intelligence = 10;
+            Strength = 10;
+            Dexterity = 10;
+            ExpCurrent = 0;
+            ExpNextLevel = 1000;
+
+            // Dwarf Bonuses 
+            Defence += 2;
+            Strength += 2;
+            Dexterity -= 1;
+            Type = "Dwarf";
         }
 	}
 }

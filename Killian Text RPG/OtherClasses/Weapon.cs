@@ -6,12 +6,12 @@ namespace Killian_Text_RPG
 {
 	public class Weapon
 	{
-		string Name;
-		int MinDamage;
-		int MaxDamage;
-		int ID;
+		string Name { get; }
+		int MinDamage { get; }
+        int MaxDamage { get; }
+        int ID { get; }
 
-		public Weapon()
+        public Weapon(string name, int minDamage, int intMaxDamage, int ID)
 		{
 			throw new NotImplementedException();
 		}

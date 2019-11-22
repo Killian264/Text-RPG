@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Killian_Text_RPG.Helpers
 {
-    class FileSystem
+    class Save
     {
     }
 }

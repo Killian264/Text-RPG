@@ -7,6 +7,7 @@ namespace Killian_Text_RPG
 	public class Vendor
 	{
 		string name;
+        // Make these constant after setup in constants
 		List<Weapon> Weapon;
 		List<Consumable> Consumable;
 
@@ -14,5 +15,10 @@ namespace Killian_Text_RPG
 		{
 			throw new NotImplementedException();
 		}
+
+        Vendor(string name)
+        {
+            return;
+        }
 	}
 }

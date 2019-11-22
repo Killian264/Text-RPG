@@ -4,20 +4,17 @@ using System.Text;
 
 namespace Killian_Text_RPG
 {
-	public class Player : Creature
+	public abstract class Player : Creature
     {
-        int Intelligence;
-        int Strength;
-        int Dexterity;
-        int Experience;
-        string Class;
-        List<Weapon> weapons;
-        List<Consumable> consumables;
-
-        public Player()
-        {
-            throw new NotImplementedException();
-        }
+        protected int Intelligence;
+        protected int Strength;
+        protected int Dexterity;
+        protected int Experience;
+        public int ExpNextLevel { get; protected set; }
+        public int ExpCurrent { get; protected set; }
+        public string Class { get; protected set; }
+        public List<Weapon> weapons { get; protected set; }
+        public List<Consumable> consumables { get; protected set; }
 
         public virtual int Attack()
         {

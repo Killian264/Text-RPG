@@ -1,4 +1,5 @@
-﻿using Killian_Text_RPG.OutputInterfaces;
+﻿using Killian_Text_RPG.Helpers;
+using Killian_Text_RPG.OutputInterfaces;
 using System;
 
 namespace Killian_Text_RPG
@@ -7,42 +8,20 @@ namespace Killian_Text_RPG
     {
         static void Main(string[] args)
         {
-            //Dwarf player = new Dwarf();
-            Console.WriteLine("Killian Debacker's Text RPG");
-            Console.WriteLine("1. New Game");
-            Console.WriteLine("2 Load Game");
-            int thingyu;
-            do
-            {
-                thingyu = Console.Read();
-            }
-            while (thingyu.ToString() != "1" || thingyu != 2);
+            LineHelpers.LinePrintwithContinue("This game is played using the keyboard type the number, letter, or word when prompted.");
+            LineHelpers.PrintLine("Killian Debacker's Text RPG");
+            LineHelpers.PrintLine("1. New Game");
+            LineHelpers.PrintLine("2. Load Game");
 
-            if(thingyu == 1)
-            {
+            var input = LineHelpers.ReadInputNumber(new int[] { 1, 2 });
 
-            }
-            else
-            {
-                return;
-            }
+            LineHelpers.PrintLine("Killian Debacker's Text RPG");
+            LineHelpers.PrintLine("1. New Game");
+            LineHelpers.PrintLine("2. Load Game");
+            input = LineHelpers.ReadInputNumber(new int[] { 1, 2 });
 
-
-            Console.WriteLine(" Story Add Later ......................................................................................." +
-                "........................................................................................................................." +
-                "...................................................................................................................");
-
-            Console.WriteLine(" Story Add Later ......................................................................................." +
-                "........................................................................................................................." +
-                "...................................................................................................................");
-
-            Console.WriteLine(" Story Add Later ......................................................................................." +
-                "........................................................................................................................." +
-                "...................................................................................................................");
-
-            Console.WriteLine(" Story Add Later ......................................................................................." +
-                "........................................................................................................................." +
-                "...................................................................................................................");
+            Console.WriteLine("test");
+            StoryStart.Start();
         }
     }
 
