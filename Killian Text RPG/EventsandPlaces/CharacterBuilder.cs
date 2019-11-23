@@ -38,7 +38,7 @@ namespace Killian_Text_RPG.Events
             charClass--;
             Interface.TempInterface(name, races[race], charClasses[charClass]);
 
-            var character = CharacterReturn(name, races[race], charClasses[charClass]);
+            var character = CharacterReturnHelper(name, races[race], charClasses[charClass]);
 
             Interface.BasicInterface(character);
 
@@ -47,7 +47,7 @@ namespace Killian_Text_RPG.Events
             return character;
         }
 
-        private static Player CharacterReturn(string name, string race, string userClass)
+        private static Player CharacterReturnHelper(string name, string race, string userClass)
         {
             switch(race){
                 case "Human":
@@ -55,7 +55,7 @@ namespace Killian_Text_RPG.Events
                     {
                         case "Warrior":
                             return new HumanWarrior(name);
-                        case "Mage":
+                        case "Wizard":
                             return new HumanWizard(name);
                         case "Rogue":
                             return new HumanRogue(name);
@@ -66,7 +66,7 @@ namespace Killian_Text_RPG.Events
                     {
                         case "Warrior":
                             return new DwarfWarrior(name);
-                        case "Mage":
+                        case "Wizard":
                             return new DwarfWizard(name);
                         case "Rogue":
                             return new DwarfRogue(name);
@@ -77,7 +77,7 @@ namespace Killian_Text_RPG.Events
                     {
                         case "Warrior":
                             return new ElfWarrior(name);
-                        case "Mage":
+                        case "Wizard":
                             return new ElfWizard(name);
                         case "Rogue":
                             return new ElfRogue(name);

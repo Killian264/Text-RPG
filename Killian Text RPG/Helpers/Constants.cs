@@ -26,18 +26,18 @@ namespace Killian_Text_RPG.Helpers
             new Weapon("Club", "A thick piece of reinforced wood.", 1, 5, 1, 30),
             new Weapon("Dagger", "A small hilted dagger with a sharp edge.", 3, 4, 2, 40),
             new Weapon("Quarterstaff", "A large rod of reinforced wood and metal.", 4, 7, 3, 90),
-            new Weapon("Mace", "A weapon with a thick metal hilt with a larged and pointed end.", 5, 6, 4, 120),
+            new Weapon("ShortSword", "A weapon with a thick metal hilt with a larged and pointed end.", 5, 6, 4, 120),
+            new Weapon("Sword", "A weapon with a thick metal hilt with a larged and pointed end.", 6, 7, 4, 150),
+            new Weapon("Glaive", "A weapon with a thick metal hilt with a larged and pointed end.", 7, 8, 4, 180),
+            new Weapon("Greatsword", "A weapon with a thick metal hilt with a larged and pointed end.", 9, 9, 4, 200),
         };
         public static List<Consumable> Consumables = new List<Consumable>()
         {
-            new Consumable("Potion", "A bottle of glowing red liquid that moves on its own.", 10, 1, 30),
+            new Consumable("Potion", "A bottle of ever-flowing red liquid with a slight glow.", 10, 1, 15),
+            new Consumable("Large Potion", "A large bottle of ever-flowing red liquid with a slight glow.", 20, 1, 30),
+            new Consumable("Potion + 1", "A bottle of ever-flowing red liquid with a bright glow.", 30, 1, 60),
+            new Consumable("Large Potion + 1", "A large bottle of ever-flowing red liquid with a bright glow.", 40, 1, 120),
         };
 
-        //public static int test()
-        //{
-        //    Armor armor = new Armor("Chainmail", "A large and heavy chestplate of interlinked chains.", 10, 1, 200);
-        //    armor.
-        //    return 1;
-        //}
     }
 }

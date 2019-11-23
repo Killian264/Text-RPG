@@ -10,7 +10,7 @@ namespace Killian_Text_RPG
 		{
 			throw new NotImplementedException();
 		}
-        public Human()
+        protected Human()
         {
             Level = 1;
             Defence = 5;

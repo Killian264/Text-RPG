@@ -7,8 +7,8 @@ namespace Killian_Text_RPG
 {
 	public class Weapon : Thing
 	{
-		int MinDamage { get; }
-        int MaxDamage { get; }
+		public int MinDamage { get; }
+        public int MaxDamage { get; }
 
         public Weapon(string name, string description, int minDamage, int maxDamage, int id, int cost)
         {

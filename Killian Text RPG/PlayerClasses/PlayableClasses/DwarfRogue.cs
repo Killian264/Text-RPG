@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Killian_Text_RPG
 {
-	public class DwarfRogue : Player, IRogue
+	public class DwarfRogue : Dwarf, IRogue
     {
         public List<Spell> ClassSpells { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int CritChance { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

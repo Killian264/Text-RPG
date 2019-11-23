@@ -14,6 +14,8 @@ namespace Killian_Text_RPG
         public int CurrentHealth { get; protected set; }
         public string Type { get; protected set; }
 
+        public int Gold { get; protected set; }
+
 
         public virtual int TakeDamage(int damage)
         {

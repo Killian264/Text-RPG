@@ -15,7 +15,7 @@ namespace Killian_Text_RPG
 		{
 			throw new NotImplementedException();
 		}
-        public Dwarf()
+        protected Dwarf()
         {
             Level = 1;
             Defence = 5;

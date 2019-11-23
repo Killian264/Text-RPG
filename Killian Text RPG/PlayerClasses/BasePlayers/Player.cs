@@ -1,3 +1,4 @@
+using Killian_Text_RPG.Helpers;
 using Killian_Text_RPG.OtherClasses;
 using Killian_Text_RPG.OtherClasses.Things;
 using System;
@@ -6,7 +7,7 @@ using System.Text;
 
 namespace Killian_Text_RPG
 {
-	public abstract class Player : Creature
+	public class Player : Creature
     {
         protected int Intelligence;
         protected int Strength;
@@ -18,7 +19,6 @@ namespace Killian_Text_RPG
 
         public Weapon currWeapons { get; protected set; }
         public Armor currArmor { get; protected set; }
-        public Consumable currConsumables { get; protected set; }
 
         public List<Weapon> weapons { get; protected set; }
 
@@ -51,19 +51,34 @@ namespace Killian_Text_RPG
         }
 
         // Could use generic type and type checking to only have one func
-        public void AddWeapon(Weapon thing)
+        public void BuyItem(Thing item)
         {
-            weapons.Add(thing);
+            if(Gold < item.Cost)
+            {
+                LineHelpers.PrintLineWithContinue("You cannot afford this item.");
+                return;
+            }
+            if (item is Weapon)
+            {
+                weapons.Add(item as Weapon);
+            }
+            else if (item is Armor)
+            {
+                Armor.Add(item as Armor);
+            }
+            else
+            {
+                consumables.Add(item as Consumable);
+            }
         }
-
-        public void AddArmor(Armor thing)
+        // Player init
+        public Player()
         {
-            Armor.Add(thing);
-        }
-
-        public void AddConsumable(Consumable thing)
-        {
-            consumables.Add(thing);
+            currWeapons = new Weapon("None", "None", 1, 1, 9999, 1);
+            currArmor = new Armor("None", "None", 1, 9999, 1);
+            weapons = new List<Weapon>();
+            Armor = new List<Armor>();
+            consumables = new List<Consumable>();
         }
     }
 }

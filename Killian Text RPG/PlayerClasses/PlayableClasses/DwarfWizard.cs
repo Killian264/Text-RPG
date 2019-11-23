@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Killian_Text_RPG
 {
-	public class DwarfWizard : Player, IMage
+	public class DwarfWizard : Dwarf, IMage
 	{
         public List<Spell> Spells { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int SpellPoints { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

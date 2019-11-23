@@ -8,6 +8,8 @@ namespace Killian_Text_RPG.Helpers
 {
     class LineHelpers
     {
+        // Speed at which text moves
+        static int speed = 10;
         public static void AnyKeyToContinue()
         {
             Print("\n");
@@ -30,7 +32,7 @@ namespace Killian_Text_RPG.Helpers
         {
             foreach (char letter in line)
             {
-                Thread.Sleep(30);
+                Thread.Sleep(speed);
                 Console.Write(letter);
             }
         }
@@ -38,7 +40,7 @@ namespace Killian_Text_RPG.Helpers
         {
             foreach (char letter in line)
             {
-                Thread.Sleep(30);
+                Thread.Sleep(speed);
                 Console.Write(letter);
             }
             Console.Write("\n");
@@ -50,7 +52,7 @@ namespace Killian_Text_RPG.Helpers
                 PrintLine(line);
             }
         }
-        public static void LinePrintwithContinue(string line)
+        public static void PrintLineWithContinue(string line)
         {
             Print(line);
             AnyKeyToContinue();

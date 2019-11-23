@@ -11,7 +11,7 @@ namespace Killian_Text_RPG
 			throw new NotImplementedException();
 		}
 
-        public Elf()
+        protected Elf()
         {
             Level = 1;
             Defence = 5;

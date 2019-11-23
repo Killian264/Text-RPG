@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Killian_Text_RPG
 {
-	public class HumanWarrior : Player, IWarrior
+	public class HumanWarrior : Human, IWarrior
     {
         public int BlockChance { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public List<Spell> ClassSpells { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

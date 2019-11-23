@@ -7,7 +7,7 @@ namespace Killian_Text_RPG
 {
 	public class Consumable : Thing
 	{
-        int HealAmount { get; }
+        public int HealAmount { get; }
 
         public Consumable(string name, string description, int healAmount, int id, int cost)
         {
