@@ -19,7 +19,8 @@ namespace Killian_Text_RPG
 
         public virtual int TakeDamage(int damage)
         {
-            if (damage < Defence) return 0;
+            int ret = Convert.ToInt32(damage * .3);
+            if ((damage - ret) < Defence) return ret;
 
             damage = damage - Defence;
             CurrentHealth -= damage;

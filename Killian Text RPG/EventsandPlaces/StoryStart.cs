@@ -1,5 +1,6 @@
 ﻿using Killian_Text_RPG.Events;
 using Killian_Text_RPG.Helpers;
+using Killian_Text_RPG.OutputInterfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,7 +24,9 @@ namespace Killian_Text_RPG
             //LineHelpers.StoryPrint("Story Add Later ......................................................................................." +
             //    "........................................................................................................................." +
             //    "...................................................................................................................", player);
-            Shop.EnterShop(player);
+            //Shop.EnterShop(player);
+            //player.ViewInventory();
+            CharacterSheet.Display(player);
         }
     }
 }

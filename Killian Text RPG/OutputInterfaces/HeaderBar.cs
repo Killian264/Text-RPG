@@ -26,7 +26,7 @@ namespace Killian_Text_RPG.OutputInterfaces
         //    player.Name, player.CurrentHealth, player.Constitution, player.Level, player.ExpCurrent, player.ExpNextLevel, player.Class, player.Type);
         //Console.Write("\n");
         //Console.Write("  Weapon: {0}-{0}  \t  Armor: {1}  \t  Gold: {2}  \t  Base Attack: {3}  \t  Base Armor: {4}  \t  Date: {5} ",
-        //    player.currWeapons.MinDamage, player.currWeapons.MaxDamage, player.currArmor.ArmorRating, player.Gold, player.BaseAttackDamage, player.Defence, DateTime.Now.ToString("mm/dd/yyyy"));
+        //    player.CurrentWeapons.MinDamage, player.CurrentWeapons.MaxDamage, player.CurrentArmor.ArmorRating, player.Gold, player.BaseAttackDamage, player.Defence, DateTime.Now.ToString("mm/dd/yyyy"));
         //Console.Write("\n");
         public static void TempInterface(string name = "", string charRace = "", string charClass = "")
         {

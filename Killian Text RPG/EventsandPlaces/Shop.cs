@@ -37,15 +37,15 @@ namespace Killian_Text_RPG
                 {
                     case 1:
                         Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLine, "Weapons: ");
-                        choices = BuyHelperPrintList(vendor.Weapon);
+                        choices = ListHelpers.PrintListHelper(vendor.Weapon);
                         break;
                     case 2:
                         Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLine, "Armor: ");
-                        choices = BuyHelperPrintList(vendor.Armor);
+                        choices = ListHelpers.PrintListHelper(vendor.Armor);
                         break;
                     case 3:
                         Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLine, "Consumables: ");
-                        choices = BuyHelperPrintList(vendor.Consumable);
+                        choices = ListHelpers.PrintListHelper(vendor.Consumable);
                         break;
                     case 4:
                         Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLineWithContinue, "You leave the shop.");
@@ -60,116 +60,19 @@ namespace Killian_Text_RPG
                     switch (type)
                     {
                         case 1:
-                            player.BuyItem(BuyHelper(vendor.Weapon, id));
+                            player.BuyItem(ListHelpers.GetItemByIDHelper(vendor.Weapon, id));
                             break;
                         case 2:
-                            player.BuyItem(BuyHelper(vendor.Armor, id));
+                            player.BuyItem(ListHelpers.GetItemByIDHelper(vendor.Armor, id));
                             break;
                         case 3:
-                            player.BuyItem(BuyHelper(vendor.Consumable, id));
+                            player.BuyItem(ListHelpers.GetItemByIDHelper(vendor.Consumable, id));
                             break;
                     }
                 }
 
             } while (true);
 
-        }
-        //private static int[] BuyHelperPrintList2<T>(List<T> list)
-        //{
-        //    List<int> ret = new List<int>(); 
-        //    foreach (var thing in list)
-        //    {
-        //        var test = thing as Thing;
-        //        ret.Add(test.ID);
-        //        LineHelpers.PrintLine(test.ID.ToString() + ". " + test.Name);
-        //        PrintHelper(thing);
-        //    }
-        //    LineHelpers.PrintLine(ret.Count + 1 + ". Exit");
-        //    ret.Add(ret.Count + 1);
-        //    return ret.ToArray();
-        //}
-        //private static void PrintHelper(Thing item)
-        //{
-        //    if (item is Weapon)
-        //    {
-        //        var test = item as Weapon;
-        //        LineHelpers.PrintLine("  " + test.Description);
-        //        LineHelpers.PrintLine("  Cost: " + test.Cost);
-        //        LineHelpers.PrintLine("  Damage: " + test.MinDamage + " to " + test.MaxDamage);
-        //    }
-        //    else if (item is Armor)
-        //    {
-        //        var test = item as Armor;
-        //        LineHelpers.PrintLine("  " + test.Description);
-        //        LineHelpers.PrintLine("  Armor: " + test.ArmorRating);
-        //        LineHelpers.PrintLine("  Cost: " + test.Cost);
-        //    }
-        //    else
-        //    {
-        //        var test = item as Consumable;
-        //        LineHelpers.PrintLine("  " + test.Description);
-        //        LineHelpers.PrintLine("  Cost: " + test.Cost);
-        //        LineHelpers.PrintLine("  Heal: " + test.HealAmount);
-        //    }
-        //}
-        //private static int[] BuyHelperPrintList(int choice, int id)
-        //{
-        //    List<int> ret = new List<int>();
-        //    foreach (var thing in list)
-        //    {
-        //        ret.Add(thing.ID);
-        //        LineHelpers.PrintLine(thing.ID.ToString() + ". " + thing.Name);
-        //        PrintHelper(thing);
-        //    }
-        //    LineHelpers.PrintLine(ret.Count + 1 + ". Exit");
-        //    ret.Add(ret.Count + 1);
-        //    return ret.ToArray();
-        //}
-        private static int[] BuyHelperPrintList(dynamic list)
-        {
-            List<int> ret = new List<int>();
-            foreach (var thing in list)
-            {
-                ret.Add(thing.ID);
-                LineHelpers.PrintLine(thing.ID.ToString() + ". " + thing.Name);
-                PrintHelper(thing);
-            }
-            LineHelpers.PrintLine(ret.Count + 1 + ". Exit");
-            ret.Add(ret.Count + 1);
-            return ret.ToArray();
-        }
-        private static void PrintHelper(dynamic item)
-        {
-            if (item is Weapon)
-            {
-                LineHelpers.PrintLine("  " + item.Description);
-                LineHelpers.PrintLine("  Cost: " + item.Cost);
-                LineHelpers.PrintLine("  Damage: " + item.MinDamage + " to " + item.MaxDamage);
-            }
-            else if (item is Armor)
-            {
-                LineHelpers.PrintLine("  " + item.Description);
-                LineHelpers.PrintLine("  Armor: " + item.ArmorRating);
-                LineHelpers.PrintLine("  Cost: " + item.Cost);
-            }
-            else
-            {
-                LineHelpers.PrintLine("  " + item.Description);
-                LineHelpers.PrintLine("  Cost: " + item.Cost);
-                LineHelpers.PrintLine("  Heal: " + item.HealAmount);
-            }
-        }
-        private static dynamic BuyHelper(dynamic list, int ID)
-        {
-            // Generic get ID
-            foreach (dynamic thing in list)
-            {
-                if (thing.ID == ID)
-                {
-                    return thing;
-                }
-            }
-            return list[0];
         }
     }
 }

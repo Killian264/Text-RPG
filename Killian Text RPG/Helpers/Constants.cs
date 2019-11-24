@@ -11,6 +11,8 @@ namespace Killian_Text_RPG.Helpers
         {
             new Enemy("Kobald", "Small Humanoid",12, 1, 10, 5, 20),
         };
+        // Code would need to be refactored for id's over 8 I could use letters if im lazy -- only issue if user choice
+        // 0 is for none and here because these are used for selling could be added with no issues
         public static List<Armor> Armors = new List<Armor>()
         {
             new Armor("Cloth Armor", "A thick multilayered cloth breastpiece.", 2, 1, 30),
@@ -27,16 +29,16 @@ namespace Killian_Text_RPG.Helpers
             new Weapon("Dagger", "A small hilted dagger with a sharp edge.", 3, 4, 2, 40),
             new Weapon("Quarterstaff", "A large rod of reinforced wood and metal.", 4, 7, 3, 90),
             new Weapon("ShortSword", "A weapon with a thick metal hilt with a larged and pointed end.", 5, 6, 4, 120),
-            new Weapon("Sword", "A weapon with a thick metal hilt with a larged and pointed end.", 6, 7, 4, 150),
-            new Weapon("Glaive", "A weapon with a thick metal hilt with a larged and pointed end.", 7, 8, 4, 180),
-            new Weapon("Greatsword", "A weapon with a thick metal hilt with a larged and pointed end.", 9, 9, 4, 200),
+            new Weapon("Sword", "A weapon with a thick metal hilt with a larged and pointed end.", 6, 7, 5, 150),
+            new Weapon("Glaive", "A weapon with a thick metal hilt with a larged and pointed end.", 7, 8, 6, 180),
+            new Weapon("Greatsword", "A weapon with a thick metal hilt with a larged and pointed end.", 9, 9, 7, 200),
         };
         public static List<Consumable> Consumables = new List<Consumable>()
         {
             new Consumable("Potion", "A bottle of ever-flowing red liquid with a slight glow.", 10, 1, 15),
-            new Consumable("Large Potion", "A large bottle of ever-flowing red liquid with a slight glow.", 20, 1, 30),
-            new Consumable("Potion + 1", "A bottle of ever-flowing red liquid with a bright glow.", 30, 1, 60),
-            new Consumable("Large Potion + 1", "A large bottle of ever-flowing red liquid with a bright glow.", 40, 1, 120),
+            new Consumable("Large Potion", "A large bottle of ever-flowing red liquid with a slight glow.", 20, 2, 30),
+            new Consumable("Potion + 1", "A bottle of ever-flowing red liquid with a bright glow.", 30, 3, 60),
+            new Consumable("Large Potion + 1", "A large bottle of ever-flowing red liquid with a bright glow.", 40, 4, 120),
         };
 
     }
