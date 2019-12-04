@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Killian_Text_RPG.Helpers;
 
 namespace Killian_Text_RPG
 {
 	public class DwarfRogue : Dwarf, IRogue
     {
-        public List<Spell> ClassSpells { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int CritChance { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public List<Spell> ClassSpells { get; set; }
+        public int CritChance { get; set; } = 5;
 
         public void Block()
 		{
@@ -34,9 +35,20 @@ namespace Killian_Text_RPG
             Strength += 8;
             Dexterity += 6;
 
+            //Rogue Stuff
+            ClassSpells = new List<Spell>();
+            CritChance = 5;
+
 
             Class = "Rogue";
 
+            return;
+        }
+        public DwarfRogue(SaveModel player)
+        {
+            new Dwarf(player, this);
+            ClassSpells = player.ClassSpells;
+            Class = "Rogue";
             return;
         }
     }

@@ -4,14 +4,8 @@ using System.Text;
 
 namespace Killian_Text_RPG
 {
-	public interface IMage
+	public interface IWizard
 	{
-		List<Spell> Spells
-		{
-			get;
-			set;
-		}
-
 		int SpellPoints
 		{
 			get;

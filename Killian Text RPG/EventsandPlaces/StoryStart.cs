@@ -26,7 +26,8 @@ namespace Killian_Text_RPG
             //    "...................................................................................................................", player);
             //Shop.EnterShop(player);
             //player.ViewInventory();
-            CharacterSheet.Display(player);
+            Town.Enter(player);
+            //CharacterSheet.Display(player);
         }
     }
 }

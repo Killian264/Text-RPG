@@ -1,3 +1,4 @@
+using Killian_Text_RPG.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -33,6 +34,10 @@ namespace Killian_Text_RPG
             Class = "Warrior";
 
             return;
+        }
+        public ElfWarrior(SaveModel player)
+        {
+            throw new NotImplementedException();
         }
     }
 }

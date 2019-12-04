@@ -12,7 +12,7 @@ namespace Killian_Text_RPG
 {
     class Shop
     {
-        public static void EnterShop(Player player)
+        public static void Enter(Player player)
         {
             Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLineWithContinue, "A bell rings as you enter the shop and a large man comes out of the back with a smithing apron and a hammer in his hand.");
             Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLineWithContinue, "The shopkeeper smiles. \"Feel free to look around the shop. We have weapons, armor, and potions.\" he puts down his hammer and begins polishing a large breastplate.");

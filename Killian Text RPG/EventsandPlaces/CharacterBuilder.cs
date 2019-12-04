@@ -30,7 +30,7 @@ namespace Killian_Text_RPG.Events
             string[] charClasses = new string[3] { "Warrior", "Wizard", "Rogue" };
 
             LineHelpers.PrintLine("Choose Class");
-            LineHelpers.PrintLine("1. Fighter");
+            LineHelpers.PrintLine("1. Warrior");
             LineHelpers.PrintLine("2. Wizard");
             LineHelpers.PrintLine("3. Rogue");
 

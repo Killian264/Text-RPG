@@ -1,3 +1,4 @@
+using Killian_Text_RPG.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -32,6 +33,10 @@ namespace Killian_Text_RPG
             Class = "Rogue";
 
             return;
+        }
+        public HumanRogue(SaveModel player)
+        {
+            throw new NotImplementedException();
         }
     }
 }

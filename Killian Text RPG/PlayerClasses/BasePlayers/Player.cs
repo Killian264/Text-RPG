@@ -190,5 +190,27 @@ namespace Killian_Text_RPG
             Armor = new List<Armor>();
             Consumables = new List<Consumable>();
         }
+        public Player(SaveModel player, Player that)
+        {
+            that.Level = player.Level;
+            that.Defence = player.Defence;
+            that.CurrentHealth = player.CurrentHealth;
+            that.Constitution = player.Constitution;
+            that.BaseAttackDamage = player.BaseAttackDamage;
+            that.Intelligence = player.Intelligence;
+            that.Strength = player.Strength;
+            that.Dexterity = player.Dexterity;
+            that.ExpCurrent = player.ExpCurrent;
+            that.ExpNextLevel = player.ExpNextLevel;
+            that.Gold = player.Gold;
+            that.Name = player.Name;
+
+            // Object init
+            that.CurrentWeapon = player.CurrentWeapon;
+            that.CurrentArmor = player.CurrentArmor;
+            that.Weapons = player.Weapons;
+            that.Armor = player.Armor;
+            that.Consumables = player.Consumables;
+        }
     }
 }

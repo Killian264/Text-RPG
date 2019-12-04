@@ -1,10 +1,11 @@
+using Killian_Text_RPG.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Killian_Text_RPG
 {
-	public class HumanWizard : Human, IMage
+	public class HumanWizard : Human, IWizard
     {
         public List<Spell> Spells { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int SpellPoints { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
@@ -34,6 +35,10 @@ namespace Killian_Text_RPG
             Class = "Wizard";
 
             return;
+        }
+        public HumanWizard(SaveModel player)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,3 +1,4 @@
+using Killian_Text_RPG.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -31,9 +32,13 @@ namespace Killian_Text_RPG
             Defence += 7;
 
 
-            Class = "Rogue";
+            Class = "Warrior";
 
             return;
+        }
+        public HumanWarrior(SaveModel player)
+        {
+            throw new NotImplementedException();
         }
     }
 }

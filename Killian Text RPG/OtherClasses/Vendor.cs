@@ -13,7 +13,6 @@ namespace Killian_Text_RPG
 	public class Vendor
 	{
         public string Name { get; } = "Vendor Venderson";
-        // Make these constant after setup in constants
         public List<Weapon> Weapon { get; } = Constants.Weapons;
         public List<Armor> Armor { get; } = Constants.Armors;
         public List<Consumable> Consumable { get; } = Constants.Consumables;
