@@ -18,7 +18,6 @@ namespace Killian_Text_RPG
 		}
         protected Dwarf()
         {
-
             // Dwarf Bonuses 
             Defence += 2;
             Strength += 2;

@@ -7,8 +7,8 @@ namespace Killian_Text_RPG
 {
 	public class DwarfWarrior : Dwarf, IWarrior
 	{
-        public int BlockChance { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public List<Spell> ClassSpells { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        // 
+        public int BlockChance { get; set; } = 5;
 
         public void Block()
 		{
@@ -35,7 +35,7 @@ namespace Killian_Text_RPG
             Strength += 6;
             Dexterity += 8;
             Defence += 7;
-
+            ClassSpells = new List<Spell>();
 
             Class = "Warrior";
 
@@ -43,7 +43,9 @@ namespace Killian_Text_RPG
         }
         public DwarfWarrior(SaveModel player)
         {
-            throw new NotImplementedException();
+            new Dwarf(player, this);
+            Class = "Warrior";
+            return;
         }
     }
 }

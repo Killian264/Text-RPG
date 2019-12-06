@@ -7,13 +7,14 @@ namespace Killian_Text_RPG
 	public class Enemy : Creature
 	{
 		int RewardGold;
+        string Description;
 
 		public void Die()
 		{
 			throw new NotImplementedException();
 		}
 
-		public Enemy(string name, string type, int health, int level, int attackDamage, int defence, int rewardGold)
+		public Enemy(string name, string type, int health, int level, int attackDamage, int defence, int rewardGold, string description = "")
 		{
             Name = name;
             Type = type;
@@ -22,6 +23,7 @@ namespace Killian_Text_RPG
             BaseAttackDamage = attackDamage;
             Defence = defence;
             RewardGold = rewardGold;
+            Description = description;
 		}
 	}
 }

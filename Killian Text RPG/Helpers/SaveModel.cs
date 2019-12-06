@@ -37,7 +37,6 @@ namespace Killian_Text_RPG.Helpers
         public int SpellPoints { get; set; }
         public int BlockChance { get; set; }
         public int CritChance { get; set; }
-        public List<Spell> Spells { get; set; }
         public List<Spell> ClassSpells { get; set; }
     }
 }

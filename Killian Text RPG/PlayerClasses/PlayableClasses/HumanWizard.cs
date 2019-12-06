@@ -7,9 +7,7 @@ namespace Killian_Text_RPG
 {
 	public class HumanWizard : Human, IWizard
     {
-        public List<Spell> Spells { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int SpellPoints { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public List<Spell> ClassSpells { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int SpellPoints { get; set; }
 
         public List<Spell> LevelUpMage()
         {
@@ -31,14 +29,16 @@ namespace Killian_Text_RPG
             Dexterity += 4;
             Defence -= 2;
 
-
+            SpellPoints = 10;
             Class = "Wizard";
 
             return;
         }
         public HumanWizard(SaveModel player)
         {
-            throw new NotImplementedException();
+            new Human(player, this);
+            Class = "Wizard";
+            return;
         }
     }
 }

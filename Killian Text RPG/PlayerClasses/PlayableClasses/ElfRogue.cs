@@ -7,8 +7,7 @@ namespace Killian_Text_RPG
 {
 	public class ElfRogue : Elf, IRogue
     {
-        public int CritChance { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public List<Spell> ClassSpells { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int CritChance { get; set; } = 5;
 
         public List<Spell> LevelUpRogue()
         {
@@ -36,7 +35,9 @@ namespace Killian_Text_RPG
         }
         public ElfRogue(SaveModel player)
         {
-            throw new NotImplementedException();
+            new Elf(player, this);
+            Class = "Rogue";
+            return;
         }
     }
 }

@@ -1,3 +1,4 @@
+using Killian_Text_RPG.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,5 +20,10 @@ namespace Killian_Text_RPG
             Dexterity -= 1;
             Type = "Elf";
         }
-	}
+        public Elf(SaveModel player, Elf that)
+        {
+            new Player(player, that);
+            Type = "Elf";
+        }
+    }
 }

@@ -24,6 +24,7 @@ namespace Killian_Text_RPG
 
         public List<Armor> Armor { get; protected set; }
         public List<Consumable> Consumables { get; protected set; }
+        public List<Spell> ClassSpells { get; protected set; }
 
         public virtual int Attack()
         {
@@ -189,6 +190,7 @@ namespace Killian_Text_RPG
             Weapons = new List<Weapon>();
             Armor = new List<Armor>();
             Consumables = new List<Consumable>();
+            ClassSpells = new List<Spell>();
         }
         public Player(SaveModel player, Player that)
         {
@@ -211,6 +213,7 @@ namespace Killian_Text_RPG
             that.Weapons = player.Weapons;
             that.Armor = player.Armor;
             that.Consumables = player.Consumables;
+            that.ClassSpells = player.ClassSpells;
         }
     }
 }

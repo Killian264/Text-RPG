@@ -9,7 +9,7 @@ namespace Killian_Text_RPG.Helpers
     class LineHelpers
     {
         // Speed at which text moves
-        static int speed = 10;
+        static readonly int speed = 10;
         public static void AnyKeyToContinue()
         {
             Print("\n");

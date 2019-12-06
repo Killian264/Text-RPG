@@ -8,7 +8,7 @@ namespace Killian_Text_RPG.Helpers
 {
     class Game
     {
-        private static string LocalSavePath = "..\\..\\..\\Helpers\\Save.json";
+        private readonly static string LocalSavePath = "..\\..\\..\\Helpers\\Save.json";
         public static bool Save(Player player)
         {
             try

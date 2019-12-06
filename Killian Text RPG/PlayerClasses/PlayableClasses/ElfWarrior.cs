@@ -7,8 +7,7 @@ namespace Killian_Text_RPG
 {
 	public class ElfWarrior : Elf, IWarrior
     {
-        public int BlockChance { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public List<Spell> ClassSpells { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int BlockChance { get; set; } = 5;
 
         public List<Spell> LevelUpWarrior()
         {
@@ -37,7 +36,9 @@ namespace Killian_Text_RPG
         }
         public ElfWarrior(SaveModel player)
         {
-            throw new NotImplementedException();
+            new Elf(player, this);
+            Class = "Warrior";
+            return;
         }
     }
 }

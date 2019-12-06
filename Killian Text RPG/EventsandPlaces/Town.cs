@@ -36,7 +36,7 @@ namespace Killian_Text_RPG.Events
                         NoticeBoard.Check(player);
                         break;
                     case 5:
-                        CharacterSheet.Display(player);
+                        Sheets.Character(player);
                         break;
                     case 6:
                         player.ViewInventory();

@@ -12,12 +12,6 @@ namespace Killian_Text_RPG
 			set;
 		}
 
-		List<Spell> ClassSpells
-		{
-			get;
-			set;
-		}
-
         List<Spell> LevelUpMage();
 	}
 }

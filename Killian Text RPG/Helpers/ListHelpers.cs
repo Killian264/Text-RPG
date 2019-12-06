@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Killian_Text_RPG.OtherClasses;
 using Killian_Text_RPG.OtherClasses.Things;
 
 namespace Killian_Text_RPG.Helpers
@@ -32,6 +33,7 @@ namespace Killian_Text_RPG.Helpers
             ret.Add(9);
             return ret.ToArray();
         }
+        // dynamic should be extraordinarly slow, I could pass Thing and typecast but im lazy
         private static void PrintHelper(dynamic item)
         {
             if (item is Weapon)

@@ -8,12 +8,6 @@ namespace Killian_Text_RPG
     {
         int CritChance{get; set;}
 
-		List<Spell> ClassSpells
-		{
-			get;
-			set;
-		}
-
         List<Spell> LevelUpRogue();
     }
 }

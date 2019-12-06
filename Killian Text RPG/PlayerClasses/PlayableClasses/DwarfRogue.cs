@@ -7,7 +7,6 @@ namespace Killian_Text_RPG
 {
 	public class DwarfRogue : Dwarf, IRogue
     {
-        public List<Spell> ClassSpells { get; set; }
         public int CritChance { get; set; } = 5;
 
         public void Block()
@@ -35,10 +34,6 @@ namespace Killian_Text_RPG
             Strength += 8;
             Dexterity += 6;
 
-            //Rogue Stuff
-            ClassSpells = new List<Spell>();
-            CritChance = 5;
-
 
             Class = "Rogue";
 
@@ -47,7 +42,6 @@ namespace Killian_Text_RPG
         public DwarfRogue(SaveModel player)
         {
             new Dwarf(player, this);
-            ClassSpells = player.ClassSpells;
             Class = "Rogue";
             return;
         }

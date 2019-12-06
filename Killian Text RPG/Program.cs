@@ -7,8 +7,9 @@ namespace Killian_Text_RPG
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
+            // I may move this later for organization
             LineHelpers.PrintLineWithContinue("This game is played using the keyboard type the number, letter, or word when prompted.");
             while (true)
             {

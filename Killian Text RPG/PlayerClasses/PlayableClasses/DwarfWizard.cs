@@ -7,9 +7,7 @@ namespace Killian_Text_RPG
 {
 	public class DwarfWizard : Dwarf, IWizard
 	{
-        public List<Spell> Spells { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public int SpellPoints { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public List<Spell> ClassSpells { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public int SpellPoints { get; set; }
 
         public void Block()
 		{
@@ -37,14 +35,16 @@ namespace Killian_Text_RPG
             Dexterity += 4;
             Defence -= 2;
 
-
+            SpellPoints = 10;
             Class = "Wizard";
 
             return;
         }
         public DwarfWizard(SaveModel player)
         {
-            throw new NotImplementedException();
+            new Dwarf(player, this);
+            Class = "Wizard";
+            return;
         }
     }
 }

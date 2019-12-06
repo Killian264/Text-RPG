@@ -22,7 +22,7 @@ namespace Killian_Text_RPG
             int ret = Convert.ToInt32(damage * .3);
             if ((damage - ret) < Defence) return ret;
 
-            damage = damage - Defence;
+            damage -= Defence;
             CurrentHealth -= damage;
             return CurrentHealth;
         }
