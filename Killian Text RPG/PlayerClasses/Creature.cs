@@ -16,15 +16,23 @@ namespace Killian_Text_RPG
 
         public int Gold { get; protected set; }
 
+        public bool IsDead()
+        {
+            return CurrentHealth <= 0;
+        }
 
         public virtual int TakeDamage(int damage)
         {
             int ret = Convert.ToInt32(damage * .3);
-            if ((damage - ret) < Defence) return ret;
+            if ((damage - ret) < Defence)
+            {
+                CurrentHealth -= ret;
+                return ret;
+            }
 
             damage -= Defence;
             CurrentHealth -= damage;
-            return CurrentHealth;
+            return damage;
         }
 
 	}

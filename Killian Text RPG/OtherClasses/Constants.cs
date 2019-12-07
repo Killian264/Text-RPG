@@ -9,7 +9,7 @@ namespace Killian_Text_RPG.Helpers
     {
         public static List<Enemy> Enemies = new List<Enemy>()
         {
-            new Enemy("Kobald", "Small Humanoid",12, 1, 10, 5, 20),
+            new Enemy("Kobald", "Small Humanoid",12, 1, 10, 5, 20, "The kobald swings with its club and it "),
         };
         // Code would need to be refactored for id's over 8 I could use letters if im lazy -- only issue if user choice
         // 0 is for none and here because these are used for selling could be added with no issues

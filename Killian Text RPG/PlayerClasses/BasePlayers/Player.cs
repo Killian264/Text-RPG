@@ -26,14 +26,28 @@ namespace Killian_Text_RPG
         public List<Consumable> Consumables { get; protected set; }
         public List<Spell> ClassSpells { get; protected set; }
 
-        public virtual int Attack()
+        public virtual void Attack(Enemy enemy)
         {
             int weaponDps = new Random().Next(CurrentWeapon.MinDamage, CurrentWeapon.MaxDamage);
             int damage = BaseAttackDamage + weaponDps;
             damage *= (Strength / 12);
-            return damage;
+            AttackString(enemy.TakeDamage(damage), enemy.Name);
+            //return damage;
         }
+        // Note this should be deleted later in favor of a more robust system
+        private void AttackString(int damage, string enemyName)
+        {
+            string attackState = "--did'nt round up fix Player.AttackString--";
+            if (damage <= 0) attackState = "misses the ";
 
+            damage /= 3;
+            if (damage == 1) attackState = "grazes the ";
+            if (damage == 2) attackState = "hits the ";
+            if (damage == 3) attackState = "slams into the ";
+            if (damage > 3) attackState = "crushes the ";
+
+            LineHelpers.PrintLineWithContinue(("You swing your " + this.CurrentWeapon.Name + " and it " + attackState + enemyName + "."));
+        }
         public virtual void LevelUp()
         {
             throw new NotImplementedException();
