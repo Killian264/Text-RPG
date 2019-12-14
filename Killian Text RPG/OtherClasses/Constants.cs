@@ -9,7 +9,16 @@ namespace Killian_Text_RPG.Helpers
     {
         public static List<Enemy> Enemies = new List<Enemy>()
         {
-            new Enemy("Kobald", "Small Humanoid",12, 1, 10, 5, 20, "The kobald swings with its club and it "),
+            new Enemy("Kobold", "Small Humanoid",12, 1, 10, 5, 20, "The kobold swings with its club and it ", "Out of the darkness you a small creature move into the light. A kobold appears with a club in its hand. ", "The kobold falls backwards and twitches before laying still."),
+            new Enemy("Kobold2", "Small Humanoid",12, 2, 10, 5, 20, "The kobold swings with its club and it ", "Out of the darkness you a small creature move into the light. A kobold appears with a club in its hand. ", "The kobold falls backwards and twitches before laying still."),
+            new Enemy("Kobold3", "Small Humanoid",12, 3, 10, 5, 20, "The kobold swings with its club and it ", "Out of the darkness you a small creature move into the light. A kobold appears with a club in its hand. ", "The kobold falls backwards and twitches before laying still."),
+            new Enemy("Kobold4", "Small Humanoid",12, 4, 10, 5, 20, "The kobold swings with its club and it ", "Out of the darkness you a small creature move into the light. A kobold appears with a club in its hand. ", "The kobold falls backwards and twitches before laying still."),
+            new Enemy("Kobold5", "Small Humanoid",12, 5, 10, 5, 20, "The kobold swings with its club and it ", "Out of the darkness you a small creature move into the light. A kobold appears with a club in its hand. ", "The kobold falls backwards and twitches before laying still."),
+            new Enemy("Kobold6", "Small Humanoid",12, 6, 10, 5, 20, "The kobold swings with its club and it ", "Out of the darkness you a small creature move into the light. A kobold appears with a club in its hand. ", "The kobold falls backwards and twitches before laying still."),
+            new Enemy("Kobold7", "Small Humanoid",12, 7, 10, 5, 20, "The kobold swings with its club and it ", "Out of the darkness you a small creature move into the light. A kobold appears with a club in its hand. ", "The kobold falls backwards and twitches before laying still."),
+            new Enemy("Kobold8", "Small Humanoid",12, 8, 10, 5, 20, "The kobold swings with its club and it ", "Out of the darkness you a small creature move into the light. A kobold appears with a club in its hand. ", "The kobold falls backwards and twitches before laying still."),
+            new Enemy("Kobold9", "Small Humanoid",12, 9, 10, 5, 20, "The kobold swings with its club and it ", "Out of the darkness you a small creature move into the light. A kobold appears with a club in its hand. ", "The kobold falls backwards and twitches before laying still."),
+            new Enemy("Kobold", "Small Humanoid",12, 10, 10, 5, 20, "The kobold swings with its club and it ", "Out of the darkness you a small creature move into the light. A kobold appears with a club in its hand. ", "The kobold falls backwards and twitches before laying still."),
         };
         // Code would need to be refactored for id's over 8 I could use letters if im lazy -- only issue if user choice
         // 0 is for none and here because these are used for selling could be added with no issues

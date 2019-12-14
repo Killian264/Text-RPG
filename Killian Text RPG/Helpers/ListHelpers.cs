@@ -8,6 +8,10 @@ namespace Killian_Text_RPG.Helpers
 {
     class ListHelpers
     {
+        // These are the generic list helpers for stuff like armor and weapons and stuff for shops and for inventory now that I think about it why didnt I just use the input number and grab by list[inputnum]
+        // figure out reason later
+
+        // all of this should be refactored infavor of a better system using list[inputnum] and delegates for print type
         public static dynamic GetItemByIDHelper(dynamic list, int ID)
         {
             // Generic get ID
@@ -53,6 +57,33 @@ namespace Killian_Text_RPG.Helpers
                 LineHelpers.PrintLine("  " + item.Description);
                 LineHelpers.PrintLine("  Cost: " + item.Cost);
                 LineHelpers.PrintLine("  Heal: " + item.HealAmount);
+            }
+        }
+
+        public delegate void PrintFunc(object item, int count);
+        public static object PrintListGetItem<T>(List<T> list, PrintFunc Print)
+        {
+            int count = 0;
+            while (true)
+            {
+                count = 0;
+                foreach (var thing in list)
+                {
+                    Print(thing, count);
+                    count++;
+                }
+
+                LineHelpers.PrintLine(count + ". Exit");
+                LineHelpers.PrintLine("Type the number...");
+                int choice = Convert.ToInt32(Console.ReadLine());
+
+
+                // if some error here count -1
+                if (choice < list.Count && choice > 0)
+                 {
+                    return list[choice];
+                }
+                if (choice == list.Count) return null;
             }
         }
 

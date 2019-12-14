@@ -15,6 +15,7 @@ namespace Killian_Text_RPG.Events
 
             do
             {
+                // A simple switch to check what the player wants to do. this could and probably should be just a while loop 
                 Interface.BasicInterfaceDelegateParams(player, LineHelpers.PrintLine, "Town:", "1. Head West", "2. Enter Inn", "3. Enter Shop.", "4. Check Notice Board", "5. Character Sheet", "6. View Inventory", "7. Save and Quit Game");
 
                 int type = LineHelpers.ReadInputNumber(new int[] { 1, 2, 3, 4, 5, 6, 7 });

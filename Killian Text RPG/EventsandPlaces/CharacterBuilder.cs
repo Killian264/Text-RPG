@@ -9,6 +9,9 @@ namespace Killian_Text_RPG.Events
     {
         public static Player BuildCharacter()
         {
+            // Prints choices for race and class and allows player to choose
+            // inits class and race combo chosen
+            // and returns it as a Player
             Interface.TempInterface();
             LineHelpers.PrintLine("Enter your name:");
 

@@ -21,6 +21,7 @@ namespace Killian_Text_RPG
         }
         private static void BuyItem(Player player)
         {
+            // Inits a vender and allows player to buy an item.
             Vendor vendor = new Vendor();
             do
             {
@@ -30,46 +31,24 @@ namespace Killian_Text_RPG
 
                 Interface.BasicInterface(player);
 
-
-
-                int[] choices;
+                Thing choice = null;
                 switch (type)
                 {
                     case 1:
-                        Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLine, "Weapons: ");
-                        choices = ListHelpers.PrintListHelper(vendor.Weapon);
+                        choice = ListHelpers.PrintListGetItem(vendor.Weapon, PrintTypes.Weapon) as Weapon;
                         break;
                     case 2:
-                        Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLine, "Armor: ");
-                        choices = ListHelpers.PrintListHelper(vendor.Armor);
+                        choice = ListHelpers.PrintListGetItem(vendor.Armor, PrintTypes.Armor) as Armor;
                         break;
                     case 3:
-                        Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLine, "Consumables: ");
-                        choices = ListHelpers.PrintListHelper(vendor.Consumable);
+                        choice = ListHelpers.PrintListGetItem(vendor.Consumable, PrintTypes.Consumable) as Consumable;
                         break;
                     case 4:
                         Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLineWithContinue, "You leave the shop.");
                         return;
-                    default:
-                        return;
                 }
+                if (choice != null) player.BuyItem(choice);
 
-                int id = LineHelpers.ReadInputNumber(choices);
-                if (id != choices[choices.Length - 1])
-                {
-                    switch (type)
-                    {
-                        case 1:
-                            player.BuyItem(ListHelpers.GetItemByIDHelper(vendor.Weapon, id));
-                            break;
-                        case 2:
-                            player.BuyItem(ListHelpers.GetItemByIDHelper(vendor.Armor, id));
-                            break;
-                        case 3:
-                            player.BuyItem(ListHelpers.GetItemByIDHelper(vendor.Consumable, id));
-                            break;
-                    }
-                }
 
             } while (true);
 

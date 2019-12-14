@@ -11,11 +11,15 @@ namespace Killian_Text_RPG
         string Description;
         private string EncounterString { get; set; }
         private string AttackString { get; set; }
+        private string DeathString { get; set; }
 
-		public void Die()
+        public void Die(Player player)
 		{
-			throw new NotImplementedException();
-		}
+            // this most likly would need to be tweaked or needed exp per level would need to rise by 30% per level 
+            int rewardExp = (Level * 30) * 2;
+            player.KillEnemy(RewardGold, rewardExp);
+            LineHelpers.PrintLineWithContinue(DeathString);
+        }
         public virtual void Attack(Player player)
         {
             AttackStringBuilder(player.TakeDamage(BaseAttackDamage), player.Name);
@@ -24,6 +28,7 @@ namespace Killian_Text_RPG
         // Note this should be deleted later in favor of a more robust system
         private void AttackStringBuilder(int damage, string enemyName)
         {
+            // see comment about player attack string builder
             string attackState = "--did'nt round up fix Enemy.AttackStringBuilder--";
             if (damage <= 0) attackState = "misses you.";
 
@@ -40,8 +45,8 @@ namespace Killian_Text_RPG
         {
             LineHelpers.PrintLineWithContinue(EncounterString);
         }
-
-        public Enemy(string name, string type, int health, int level, int attackDamage, int defence, int rewardGold, string attackString, string encounterString, string description = "")
+        // Enemies are built in Constants.cs
+        public Enemy(string name, string type, int health, int level, int attackDamage, int defence, int rewardGold, string attackString, string encounterString, string deathString, string description = "")
 		{
             Name = name;
             Type = type;
@@ -53,6 +58,7 @@ namespace Killian_Text_RPG
             AttackString = attackString;
             EncounterString = encounterString;
             Description = description;
+            DeathString = deathString;
         }
 	}
 }

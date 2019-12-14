@@ -18,7 +18,7 @@ namespace Killian_Text_RPG
             Cost = cost;
         }
 
-        public int UseConsumable()
+        public int Use()
         {
             Console.WriteLine("You drink the " + Name + " and heal " + HealAmount + " HP");
             return HealAmount;

@@ -17,14 +17,14 @@ namespace Killian_Text_RPG
         public string Description { get; }
         public string UseString { get; }
 
-        public int Use(int playerLevel, string enemyName)
+        public int Use(Player player, string enemyName)
         {
             // Possibly add description here instead
             // Possible pass in enemy name here later
             // this could be moved to combat section ill know if its a good idea later
             Console.WriteLine("The " + Name + " " + UseString + " " + enemyName);
             // This could be changed later depending on how much damage these spells do
-            return Damage + (playerLevel * 2);
+            return Damage + (player.Level * 2);
 
             // Add damage scaling stuff here later ^^^^
         }

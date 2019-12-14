@@ -5,6 +5,7 @@ using Killian_Text_RPG.OutputInterfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace Killian_Text_RPG
 {
@@ -26,17 +27,85 @@ namespace Killian_Text_RPG
         public List<Consumable> Consumables { get; protected set; }
         public List<Spell> ClassSpells { get; protected set; }
 
-        public virtual void Attack(Enemy enemy)
+        public void Attack(Enemy enemy)
         {
+            // Player decides what he wants to do.
+            // Possibly add a space for class spells later
+            Interface.BasicInterfaceDelegateParams(this, LineHelpers.PrintLine, "Choose your attack:", "1. Attack with your weapon.", "2. Choose a spell", "3. Drink a potion");
+
+            int type = LineHelpers.ReadInputNumber(new int[] { 1, 2, 3 });
+
+            Interface.BasicInterface(this);
+
+            int[] choices;
+            int damage = 0;
+            switch (type)
+            {
+                case 1:
+                    damage = this.BaseAttack(enemy);
+                    break;
+                case 2:
+                    while (true) {
+                        Spell choice = ListHelpers.PrintListGetItem(ClassSpells, PrintTypes.Spell) as Spell ;
+                        damage = choice == null ? -1 : choice.Use(this, enemy.Name);
+                    }
+                    break; // <-- its impossible to fall through here but the compiler gets mad
+                case 3:
+                    Interface.BasicInterfaceDelegate(this, LineHelpers.PrintLine, "Consumables: ");
+                    choices = ListHelpers.PrintListHelper(this.Consumables);
+                    int temp = choices[choices.Length - 1];
+                    choices = new int[1];
+                    choices[0] = temp;
+                    break;
+            }
+
+            // I may want to decouple this later 
+            AttackString(enemy.TakeDamage(damage), enemy.Name);
+
+            //return damage;
+        }
+
+        // This function takes a delegate that could be any type that returns void and takes a Spell
+        // You could also supplement this with a something similar to the output interfaces
+        public delegate void Function(Spell spell);
+        private void PrintSpells(Function print)
+        {
+            int i = 0;
+            foreach(Spell spell in ClassSpells)
+            {
+                LineHelpers.PrintLine(i + ".");
+                print(spell);
+                i++;
+            }
+        }
+        // These are helpers that decide how the spell is printed and more can be added easily
+        private void PrintSpellsNameDamage(Spell spell)
+        {
+            LineHelpers.PrintLine(spell.Name);
+            LineHelpers.PrintLine("  Damage: " + spell.Damage);
+            LineHelpers.PrintLine("  Cost: " + spell.Cost);
+        }
+        private void PrintSpellsInformation(Spell spell)
+        {
+            LineHelpers.PrintLine(spell.Name);
+            LineHelpers.PrintLine("  " + spell.Description);
+            LineHelpers.PrintLine("  Damage: " + spell.Damage);
+            LineHelpers.PrintLine("  Cost: " + spell.Cost);
+            LineHelpers.PrintLine("  Modifier: " + spell.Modifier);
+        }
+
+        public virtual int BaseAttack(Enemy enemy)
+        {
+            // damage is added here for a base attack this will be overridden for the Rogue class
             int weaponDps = new Random().Next(CurrentWeapon.MinDamage, CurrentWeapon.MaxDamage);
             int damage = BaseAttackDamage + weaponDps;
             damage *= (Strength / 12);
-            AttackString(enemy.TakeDamage(damage), enemy.Name);
-            //return damage;
+            return damage;
         }
         // Note this should be deleted later in favor of a more robust system
         private void AttackString(int damage, string enemyName)
         {
+            // this builds the attack string note that string is immutable StringBuilder would most likly be a better option here
             string attackState = "--did'nt round up fix Player.AttackString--";
             if (damage <= 0) attackState = "misses the ";
 
@@ -47,6 +116,21 @@ namespace Killian_Text_RPG
             if (damage > 3) attackState = "crushes the ";
 
             LineHelpers.PrintLineWithContinue(("You swing your " + this.CurrentWeapon.Name + " and it " + attackState + enemyName + "."));
+        }
+        public void KillEnemy(int gold, int exp)
+        {
+            // Player is updated with information after enenmy dies here
+            Gold += gold;
+            ExpCurrent += exp;
+
+            if(ExpCurrent >= ExpNextLevel)
+            {
+                var extraExp = ExpCurrent - ExpNextLevel; 
+                this.LevelUp();
+                ExpCurrent = extraExp;
+                // note this is where next exp is set but later this could be made by some calculation like ExpNextLevel *= 1.30 + 500 or something like that.
+                ExpNextLevel += 500;
+            }
         }
         public virtual void LevelUp()
         {
@@ -61,48 +145,43 @@ namespace Killian_Text_RPG
             // This is almost an exact copy of the Shop.cs do while possibly rework later
             do
             {
+                // See shop.cs for explination of this 
                 Interface.BasicInterfaceDelegateParams(this, LineHelpers.PrintLine, "Your Inventory:", "1. Weapons", "2. Armor", "3. Consumables.", "4. Exit");
 
                 int type = LineHelpers.ReadInputNumber(new int[] { 1, 2, 3, 4 });
 
                 Interface.BasicInterface(this);
 
-                int[] choices;
+                Thing choice;
                 switch (type)
                 {
                     case 1:
                         Interface.BasicInterfaceDelegate(this, LineHelpers.PrintLine, "Weapons: ");
-                        choices = ListHelpers.PrintListHelper(this.Weapons);
+                        choice = ListHelpers.PrintListGetItem(this.Weapons, PrintTypes.Weapon) as Weapon;
                         break;
                     case 2:
-                        Interface.BasicInterfaceDelegate(this, LineHelpers.PrintLine, "Armor: ");
-                        choices = ListHelpers.PrintListHelper(this.Armor);
+                        choice = ListHelpers.PrintListGetItem(this.Armor, PrintTypes.Armor) as Armor;
                         break;
                     case 3:
-                        Interface.BasicInterfaceDelegate(this, LineHelpers.PrintLine, "Consumables: ");
-                        choices = ListHelpers.PrintListHelper(this.Consumables);
-                        int temp = choices[choices.Length - 1];
-                        choices = new int[1];
-                        choices[0] = temp;
+                        choice = ListHelpers.PrintListGetItem(this.Consumables, PrintTypes.Consumable) as Consumable;
                         break;
                     default:
                         return;
                 }
-
-                int id = LineHelpers.ReadInputNumber(choices);
-                if (id != choices[choices.Length - 1])
+                if (choice != null)
                 {
                     try
                     {
                         if(type == 1)
                         {
-                            EquipWeapon(id);
+                            EquipWeapon(choice as Weapon);
                         }
                         else
                         {
-                            EquipArmor(id);
+                            EquipArmor(choice as Armor);
                         }
                     }
+                    // this should never be nessicary 
                     catch(Exception ex)
                     {
                         LineHelpers.PrintLine("Unable to equip Item.");
@@ -112,39 +191,32 @@ namespace Killian_Text_RPG
             } while (true);
         }
 
-        public void EquipWeapon(int id)
+        public void EquipWeapon(Weapon weapon)
         {
-            foreach (Weapon weapon in this.Weapons) 
-            {
-                if(weapon.ID == id)
-                {
-                    this.Weapons.Add(CurrentWeapon);
-                    CurrentWeapon = weapon;
-                    this.Weapons.Remove(weapon);
-                }
-            }
+            this.Weapons.Add(CurrentWeapon);
+            CurrentWeapon = weapon;
+            this.Weapons.Remove(weapon);
         }
-        public void EquipArmor(int id)
+        public void EquipArmor(Armor armor)
         {
-            foreach (Armor armor in this.Armor)
-            {
-                if (armor.ID == id)
-                {
-                    this.Armor.Add(CurrentArmor);
-                    CurrentArmor = armor;
-                    this.Armor.Remove(armor);
-                }
-            }
+            this.Armor.Add(CurrentArmor);
+            CurrentArmor = armor;
+            this.Armor.Remove(armor);
         }
 
-        public void UseConsumable(int ID)
+        public void UseConsumable(Consumable consumable)
         {
-            throw new NotImplementedException();
+            // if error here somehow player chose consumable that doesnt exist
+            Consumables.Remove(consumable);
+            this.Heal(consumable.Use());
         }
 
         // Could use generic type and type checking to only have one func
         public void BuyItem(Thing item)
         {
+            // this function takes an item checks if a user can afford it
+            // then type checks it to and adds it to list unless player already owns it
+            // then subtracts cost from gold
             if (Gold < item.Cost)
             {
                 LineHelpers.PrintLineWithContinue("You cannot afford this item.");
@@ -152,7 +224,8 @@ namespace Killian_Text_RPG
             }
             if (item is Weapon)
             {
-                if(ExistHelper(this.Weapons, item.ID))
+                Weapon weapon = item as Weapon;
+                if (this.Weapons.Contains(weapon))
                 {
                     LineHelpers.PrintLineWithContinue("You already own this item.");
                     return;
@@ -161,28 +234,34 @@ namespace Killian_Text_RPG
             }
             else if (item is Armor)
             {
-                if (ExistHelper(this.Armor, item.ID))
+                Armor armor = item as Armor;
+                if (this.Armor.Contains(armor))
                 {
                     LineHelpers.PrintLineWithContinue("You already own this item.");
                     return;
                 }
-                Armor.Add(item as Armor);
+                Armor.Add(armor);
             }
-            else
+            else if (item is Consumable)
             {
-                if (ExistHelper(this.Consumables, item.ID))
+                Consumable consumable = item as Consumable;
+                if (this.Consumables.Contains(consumable))
                 {
                     LineHelpers.PrintLineWithContinue("You already own this item.");
                     return;
                 }
-                Consumables.Add(item as Consumable);
+                Consumables.Add(consumable);
             }
             LineHelpers.PrintLineWithContinue("The item has been added to your inventory.");
+            Gold -= item.Cost;
         }
-        private bool ExistHelper<T>(List<T> list, int id)
+        private bool ExistHelper<T>(List<T> list, T item)
         {
-            return (ListHelpers.GetItemByIDHelper(list, id) != null); 
+            // generic list contains func this could be removed 
+            return list.Contains(item); 
         }
+
+        // self explanatory
         public Player()
         {
             // Base Stats
@@ -206,6 +285,7 @@ namespace Killian_Text_RPG
             Consumables = new List<Consumable>();
             ClassSpells = new List<Spell>();
         }
+        // Check SaveModel and Save for more information on the use of this method
         public Player(SaveModel player, Player that)
         {
             that.Level = player.Level;
