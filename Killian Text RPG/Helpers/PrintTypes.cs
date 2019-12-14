@@ -7,7 +7,7 @@ namespace Killian_Text_RPG.Helpers
 {
     class PrintTypes
     {
-
+        // See ListHelpers for info on implementation
         public static void Weapon(object item, int count)
         {
             Weapon weapon = item as Weapon;

@@ -10,21 +10,19 @@ namespace Killian_Text_RPG.EventsandPlaces
     {
         public static void Enter(Player player)
         {
-            Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLineWithContinue, "You enter the shop add event later");
-            Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLineWithContinue, "You enter the shop 2 add event later");
-
+            // basic 
+            Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLineWithContinue, "You enter the inn and see that its full to the brim with people at every table. Some drinking and eating and others playing cards.");
             ShopChoices(player);
         }
         private static void ShopChoices(Player player)
         {
-            do
-            {
+            // Inn choices this will go until player leaves
+            while (true) {
                 Interface.BasicInterfaceDelegateParams(player, LineHelpers.PrintLine, "What can I do for you today?:", "1. Room - 10 gold", "   You rest for a day and your wounds are healed.", "2. Drink - 2 gold", "   You grab a drink and some of your wounds are healed.", "3. Ask for work.", "4. Exit");
 
                 int type = LineHelpers.ReadInputNumber(new int[] { 1, 2, 3, 4 });
 
                 Interface.BasicInterface(player);
-
 
 
                 switch (type)
@@ -44,7 +42,7 @@ namespace Killian_Text_RPG.EventsandPlaces
                         Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLineWithContinue, "You leave the inn.");
                         return;
                 }
-            } while (true);
+            }
         }
     }
 }

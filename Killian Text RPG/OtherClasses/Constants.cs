@@ -9,8 +9,33 @@ namespace Killian_Text_RPG.Helpers
     {
         public static List<Enemy> Enemies = new List<Enemy>()
         {
-            new Enemy("Kobold", "Small Humanoid",12, 1, 10, 5, 20, "The kobold swings with its club and it ", "Out of the darkness you a small creature move into the light. A kobold appears with a club in its hand. ", "The kobold falls backwards and twitches before laying still."),
-            new Enemy("Kobold2", "Small Humanoid",12, 2, 10, 5, 20, "The kobold swings with its club and it ", "Out of the darkness you a small creature move into the light. A kobold appears with a club in its hand. ", "The kobold falls backwards and twitches before laying still."),
+            // The enemy class takes these parameters in order
+            /* 
+            1. Name 
+            2. Enemy type 
+            3. Health 
+            4. Level 
+            5. Attack Damage 
+            6. Defence 
+            7. Reward Gold 
+            8. Attack String Format (The (enemy name) (attack type) (and it))
+            9. Encounter String (Any)
+            10. Death String (Any)
+            11. [Unrequired] Description
+            */
+
+            new Enemy("Slime", "Small blob.",
+                4,1,5,5,20, 
+                "The slime shoots a small bit of acidic slime towards you and it ", 
+                "Out of the darkness you a small creature move into the light it's a slime.", 
+                "The slime flattens until it breaks apart and expands into a puddle."),
+
+            new Enemy("Kobold", "Small Humanoid",
+                8, 2, 5, 5, 20, 
+                "The kobold swings with its club and it ", 
+                "Out of the darkness you a small creature move into the light. A kobold appears with a club in its hand. ", 
+                "The kobold falls backwards and twitches before laying still."),
+
             new Enemy("Kobold3", "Small Humanoid",12, 3, 10, 5, 20, "The kobold swings with its club and it ", "Out of the darkness you a small creature move into the light. A kobold appears with a club in its hand. ", "The kobold falls backwards and twitches before laying still."),
             new Enemy("Kobold4", "Small Humanoid",12, 4, 10, 5, 20, "The kobold swings with its club and it ", "Out of the darkness you a small creature move into the light. A kobold appears with a club in its hand. ", "The kobold falls backwards and twitches before laying still."),
             new Enemy("Kobold5", "Small Humanoid",12, 5, 10, 5, 20, "The kobold swings with its club and it ", "Out of the darkness you a small creature move into the light. A kobold appears with a club in its hand. ", "The kobold falls backwards and twitches before laying still."),
@@ -24,6 +49,14 @@ namespace Killian_Text_RPG.Helpers
         // 0 is for none and here because these are used for selling could be added with no issues
         public static List<Armor> Armors = new List<Armor>()
         {
+            // The Armor class takes these parameters in order
+            /* 
+            1. Name 
+            2. Description
+            3. ArmorRating
+            4. Id (should be deleted later probably)
+            5. Cost
+            */
             new Armor("Cloth Armor", "A thick multilayered cloth breastpiece.", 2, 1, 30),
             new Armor("Leather Armor", "A simple leather breastpiece with strong threads holding it together.", 4, 2, 60),
             new Armor("Stutted Leather Armor", "A tough and stiff leather breastpiece with reinforced with iron rivots.", 6, 3, 90),
@@ -34,6 +67,15 @@ namespace Killian_Text_RPG.Helpers
         };
         public static List<Weapon> Weapons = new List<Weapon>()
         {
+            // The Armor class takes these parameters in order
+            /* 
+            1. Name 
+            2. Description
+            3. minDamage
+            4. maxDamage
+            5. Id (should be deleted later probably)
+            6. Cost
+            */
             new Weapon("Club", "A thick piece of reinforced wood.", 1, 5, 1, 30),
             new Weapon("Dagger", "A small hilted dagger with a sharp edge.", 3, 4, 2, 40),
             new Weapon("Quarterstaff", "A large rod of reinforced wood and metal.", 4, 7, 3, 90),
@@ -44,6 +86,14 @@ namespace Killian_Text_RPG.Helpers
         };
         public static List<Consumable> Consumables = new List<Consumable>()
         {
+            // The Armor class takes these parameters in order
+            /* 
+            1. Name 
+            2. Description
+            3. Heal Amount
+            4. Id (should be deleted later probably)
+            5. Cost
+            */
             new Consumable("Potion", "A bottle of ever-flowing red liquid with a slight glow.", 10, 1, 15),
             new Consumable("Large Potion", "A large bottle of ever-flowing red liquid with a slight glow.", 20, 2, 30),
             new Consumable("Potion + 1", "A bottle of ever-flowing red liquid with a bright glow.", 30, 3, 60),

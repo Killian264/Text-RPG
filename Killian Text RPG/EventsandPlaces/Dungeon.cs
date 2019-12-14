@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Killian_Text_RPG.Helpers;
+using Killian_Text_RPG.OutputInterfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,6 +8,47 @@ namespace Killian_Text_RPG.Events
 {
     class Dungeon
     {
+        public static void Enter(Player player)
+        {
+            Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLineWithContinue, "You enter the dungeon add event later");
+            Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLineWithContinue, "You enter the dungeon add event later");
+            EnterDungeon(player);
+        }
+        private static void EnterDungeon(Player player)
+        {
+            for (int dungeonLevel = 0; dungeonLevel <= 10; dungeonLevel++)
+            {
+                if(dungeonLevel % 3 == 0)
+                {
+                    if (!Dungeon.Rest(player))
+                        return;
+                }
+                else
+                {
+                    // Cool events would be random here
+
+                    //continue dependent on choices and result here
+                    if (!Combat.Enter(player, dungeonLevel)) 
+                        return;
+
+                    if (!AfterCombatChoices(player))
+                        return;
+
+                    // Add choices here to stay on current level or go up a level
+                }
+            }
+        }
+        // bool determines if player keeps going or leaves after event
+        public static bool Rest(Player player)
+        {
+            return true;
+        }
+
+        // bool determines if player keeps going or leaves after event
+        public static bool AfterCombatChoices(Player player)
+        {
+            return true;
+        }
         // Level 1 
         // Enemy attack
         // After fight choices

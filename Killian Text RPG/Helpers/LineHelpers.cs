@@ -10,6 +10,8 @@ namespace Killian_Text_RPG.Helpers
     {
         // Speed at which text moves
         static readonly int speed = 10;
+
+        // These are the line helpers and should be used instead of the Console Library
         public static void AnyKeyToContinue()
         {
             Print("\n");

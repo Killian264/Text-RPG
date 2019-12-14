@@ -10,17 +10,15 @@ namespace Killian_Text_RPG.EventsandPlaces
     {
         public static void Check(Player player)
         {
+            // notice board event with some information that can be changed later if needed
             Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLineWithContinue, "You walk up to a large weathered notice board with papers on it.");
 
-            do
-            {
-                Interface.BasicInterfaceDelegateParams(player, LineHelpers.PrintLine, "Notice Board:", "1. Reports of goblins has been prevelant on the western road proceed with caution.", "2. Come to the inn for rest and drinks!", "3. Check out my shop for weapons, armor, and healing items.", "4. A bounty of 10000 gold pieces has been put on the clearing of the goblin cave to the west.", "5. Exit");
+            Interface.BasicInterfaceDelegateParams(player, LineHelpers.PrintLine, "Notice Board:", "1. Reports of goblins has been prevelant on the western road proceed with caution.", "2. Come to the inn for rest and drinks!", "3. Check out my shop for weapons, armor, and healing items.", "4. A bounty of 10000 gold pieces has been put on the clearing of the goblin cave to the west.", "5. Exit");
 
-                LineHelpers.ReadInputNumber(new int[] {5});
-                Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLineWithContinue, "You leave the notice board.");
-                //LineHelpers.PrintLineWithContinue("You leave the notice board.");
-                return;
-            } while (true);
+            LineHelpers.ReadInputNumber(new int[] {5});
+            Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLineWithContinue, "You leave the notice board.");
+            //LineHelpers.PrintLineWithContinue("You leave the notice board.");
+            return;
         }
     }
 }

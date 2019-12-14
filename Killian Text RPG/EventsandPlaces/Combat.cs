@@ -8,7 +8,7 @@ namespace Killian_Text_RPG.Events
 {
     class Combat
     {
-        public static void Enter(Player player, int dungeonLevel)
+        public static bool Enter(Player player, int dungeonLevel)
         {
             List<Enemy> enemyChoices = Constants.Enemies.Where(enemy => enemy.Level == dungeonLevel).ToList();
 
@@ -16,19 +16,26 @@ namespace Killian_Text_RPG.Events
             Enemy enemy = enemyChoices[new Random().Next(enemyChoices.Count())];
 
             // Player attacks first
+            player.Attack(enemy);
 
             // While enemy not dead
+            while (enemy.IsDead())
+            {
+                enemy.Attack(player);
 
-                // Enemy attacks
-                    // func returns
+                if (player.IsDead())
+                {
+                    player.Die();
+                    // Awake is called here to not complicate other functions
+                    player.Awake();
+                    return false;
+                }
 
-                // Check player dead 
+                player.Attack(enemy);
 
-                // Player attacks
-
-            // Enemy.Die
-            // return
-            
+            }
+            enemy.Die(player);
+            return true;
         }
     }
 }

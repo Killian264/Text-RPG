@@ -9,6 +9,9 @@ namespace Killian_Text_RPG.Helpers
     class Game
     {
         private readonly static string LocalSavePath = "..\\..\\..\\Helpers\\Save.json";
+
+        // These are the save helpers they serialize an object and print it to a file
+        // Upon load they read and unserialize the object and move it to a Model that will be used to init the character
         public static bool Save(Player player)
         {
             try
@@ -40,6 +43,8 @@ namespace Killian_Text_RPG.Helpers
                 return null;
             }
         }
+
+        // This grabs the proper init type
         private static Player GetPlayerHelper(SaveModel playerInformation)
         {
             switch (playerInformation.Type)
@@ -80,6 +85,8 @@ namespace Killian_Text_RPG.Helpers
             }
             return null;
         }
+
+        // Simple statement for game deletion on starting a new game
         public static bool DeleteSave()
         {
             if (String.IsNullOrEmpty(File.ReadAllText(LocalSavePath)))

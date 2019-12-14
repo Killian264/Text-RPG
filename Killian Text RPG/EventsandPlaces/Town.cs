@@ -13,8 +13,7 @@ namespace Killian_Text_RPG.Events
         {
             Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLineWithContinue, "Add story about town here............................................");
 
-            do
-            {
+            while(true) { 
                 // A simple switch to check what the player wants to do. this could and probably should be just a while loop 
                 Interface.BasicInterfaceDelegateParams(player, LineHelpers.PrintLine, "Town:", "1. Head West", "2. Enter Inn", "3. Enter Shop.", "4. Check Notice Board", "5. Character Sheet", "6. View Inventory", "7. Save and Quit Game");
 
@@ -22,10 +21,12 @@ namespace Killian_Text_RPG.Events
 
                 Interface.BasicInterface(player);
 
+                // This is like the game hub and the player can only save here.
+
                 switch (type)
                 {
                     case 1:
-                        // Add later
+                        Dungeon.Enter(player);
                         break;
                     case 2:
                         Inn.Enter(player);
@@ -46,7 +47,7 @@ namespace Killian_Text_RPG.Events
                         if(Game.Save(player)) return;
                         break;
                 }
-            } while (true);
+            }
         }
     }
 }

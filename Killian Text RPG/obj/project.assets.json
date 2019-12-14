@@ -58,11 +58,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Killian\\Desktop\\CurrentProjects\\Text RPG\\Killian Text RPG\\Killian Text RPG.csproj",
+      "projectUniqueName": "C:\\Users\\Killian\\Desktop\\yee\\Text-RPG-master\\Killian Text RPG\\Killian Text RPG.csproj",
       "projectName": "Killian Text RPG",
-      "projectPath": "C:\\Users\\Killian\\Desktop\\CurrentProjects\\Text RPG\\Killian Text RPG\\Killian Text RPG.csproj",
+      "projectPath": "C:\\Users\\Killian\\Desktop\\yee\\Text-RPG-master\\Killian Text RPG\\Killian Text RPG.csproj",
       "packagesPath": "C:\\Users\\Killian\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Killian\\Desktop\\CurrentProjects\\Text RPG\\Killian Text RPG\\obj\\",
+      "outputPath": "C:\\Users\\Killian\\Desktop\\yee\\Text-RPG-master\\Killian Text RPG\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

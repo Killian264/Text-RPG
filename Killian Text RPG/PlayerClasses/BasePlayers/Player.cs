@@ -18,6 +18,9 @@ namespace Killian_Text_RPG
         public int ExpCurrent { get; protected set; }
         public string Class { get; protected set; }
 
+        private string DeathString = "You fall over and pass out on the ground.";
+        private string AwakeString = "You awake in the village inn and notice that your coin purse is lighter. You walk into town after greeting the innkeeper.";
+
         public Weapon CurrentWeapon { get; protected set; }
         public Armor CurrentArmor { get; protected set; }
 
@@ -37,26 +40,29 @@ namespace Killian_Text_RPG
 
             Interface.BasicInterface(this);
 
-            int[] choices;
-            int damage = 0;
-            switch (type)
-            {
-                case 1:
-                    damage = this.BaseAttack(enemy);
-                    break;
-                case 2:
-                    while (true) {
-                        Spell choice = ListHelpers.PrintListGetItem(ClassSpells, PrintTypes.Spell) as Spell ;
-                        damage = choice == null ? -1 : choice.Use(this, enemy.Name);
-                    }
-                    break; // <-- its impossible to fall through here but the compiler gets mad
-                case 3:
-                    Interface.BasicInterfaceDelegate(this, LineHelpers.PrintLine, "Consumables: ");
-                    choices = ListHelpers.PrintListHelper(this.Consumables);
-                    int temp = choices[choices.Length - 1];
-                    choices = new int[1];
-                    choices[0] = temp;
-                    break;
+            int damage = -1;
+            while(damage == -1) { 
+                switch (type)
+                {
+                    case 1:
+                        damage = this.BaseAttack(enemy);
+                        break;
+                    case 2:
+                        Spell spell = ListHelpers.PrintListGetItem(ClassSpells, PrintTypes.Spell) as Spell;
+                        if (spell != null) 
+                        { 
+                            damage = spell.Use(this, enemy.Name); 
+                        }
+                        break;
+                    case 3:
+                        Consumable consumable = ListHelpers.PrintListGetItem(Consumables, PrintTypes.Consumable) as Consumable;
+                        if(consumable != null)
+                        {
+                            this.UseConsumable(consumable);
+                            return;
+                        }
+                        break;
+                }
             }
 
             // I may want to decouple this later 
@@ -64,34 +70,20 @@ namespace Killian_Text_RPG
 
             //return damage;
         }
-
-        // This function takes a delegate that could be any type that returns void and takes a Spell
-        // You could also supplement this with a something similar to the output interfaces
-        public delegate void Function(Spell spell);
-        private void PrintSpells(Function print)
+        public void Die()
         {
-            int i = 0;
-            foreach(Spell spell in ClassSpells)
+            // You lose money here if you die
+            if(Gold > 50)
             {
-                LineHelpers.PrintLine(i + ".");
-                print(spell);
-                i++;
+                Gold -= 30;
+                Gold = Convert.ToInt32(Gold * .9);
             }
+            LineHelpers.PrintLineWithContinue(DeathString);
         }
-        // These are helpers that decide how the spell is printed and more can be added easily
-        private void PrintSpellsNameDamage(Spell spell)
+        // This is seperated from Die but thats probably pointless
+        public void Awake()
         {
-            LineHelpers.PrintLine(spell.Name);
-            LineHelpers.PrintLine("  Damage: " + spell.Damage);
-            LineHelpers.PrintLine("  Cost: " + spell.Cost);
-        }
-        private void PrintSpellsInformation(Spell spell)
-        {
-            LineHelpers.PrintLine(spell.Name);
-            LineHelpers.PrintLine("  " + spell.Description);
-            LineHelpers.PrintLine("  Damage: " + spell.Damage);
-            LineHelpers.PrintLine("  Cost: " + spell.Cost);
-            LineHelpers.PrintLine("  Modifier: " + spell.Modifier);
+            LineHelpers.PrintLineWithContinue(AwakeString);
         }
 
         public virtual int BaseAttack(Enemy enemy)
@@ -191,6 +183,7 @@ namespace Killian_Text_RPG
             } while (true);
         }
 
+        // these use LINQ and are pretty self explanatory
         public void EquipWeapon(Weapon weapon)
         {
             this.Weapons.Add(CurrentWeapon);
@@ -203,7 +196,6 @@ namespace Killian_Text_RPG
             CurrentArmor = armor;
             this.Armor.Remove(armor);
         }
-
         public void UseConsumable(Consumable consumable)
         {
             // if error here somehow player chose consumable that doesnt exist
@@ -255,11 +247,6 @@ namespace Killian_Text_RPG
             LineHelpers.PrintLineWithContinue("The item has been added to your inventory.");
             Gold -= item.Cost;
         }
-        private bool ExistHelper<T>(List<T> list, T item)
-        {
-            // generic list contains func this could be removed 
-            return list.Contains(item); 
-        }
 
         // self explanatory
         public Player()
@@ -278,7 +265,7 @@ namespace Killian_Text_RPG
             Gold = 20;
 
             // Object init
-            CurrentWeapon = new Weapon("Unarmed", "No weapon.", 1, 1, 0, 1);
+            CurrentWeapon = new Weapon("Fists", "No weapon.", 1, 3, 0, 1);
             CurrentArmor = new Armor("Wool Shirt", "A wool shirt.", 1, 0, 1);
             Weapons = new List<Weapon>();
             Armor = new List<Armor>();
