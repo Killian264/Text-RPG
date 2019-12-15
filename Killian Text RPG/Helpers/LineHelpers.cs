@@ -13,6 +13,7 @@ namespace Killian_Text_RPG.Helpers
 
         // These are the line helpers and should be used instead of the Console Library
         // Many of these can be used by passing the function to the HeaderBar.cs functions that use delegates
+        // Line at the end denotes that it will use the line if it doesnt use this it will print or read without using or making a newline Console.Write() vs Console.WriteLine()
         public static void AnyKeyToContinue()
         {
             Print("\n");

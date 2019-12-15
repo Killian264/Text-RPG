@@ -6,8 +6,11 @@ namespace Killian_Text_RPG
 {
     public interface IRogue
     {
-        int CritChance{get; set;}
+        int CritChance
+        {
+            get; 
+            set;
+        }
 
-        List<Spell> LevelUpRogue();
     }
 }

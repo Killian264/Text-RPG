@@ -8,6 +8,8 @@ namespace Killian_Text_RPG.OutputInterfaces
 {
     class Sheets
     {
+
+        // These are sheets like a CharacterSheet there are also PrintTypes for smaller objects that will be shown multiple at a time
         private static void Print(Player player, List<string> print)
         {
             Interface.BasicInterface(player);
@@ -19,6 +21,7 @@ namespace Killian_Text_RPG.OutputInterfaces
         }
         public static void Character(Player player)
         {
+            // Simple list structures like this are pretty clean but harder to read imo see base class init for more information on any attribute
             List<string> print = new List<string>
             {
                 "",
@@ -44,16 +47,7 @@ namespace Killian_Text_RPG.OutputInterfaces
         }
         public static void Spell(Player player, Spell spell)
         {
-            // Delete this comment after testing
-            //Name = name;
-            //Type = type;
-            //Damage = damage;
-            //Cost = cost;
-            //Level = level;
-            //Modifier = modifier;
-            //ModifierPercent = modifierPercent;
-            //UseString = useString;
-            //Description = description;
+            // more detailed version of PrintType meant to be shown one at a time
             List<string> print = new List<string>
             {
                 "",

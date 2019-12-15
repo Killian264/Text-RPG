@@ -29,8 +29,8 @@ namespace Killian_Text_RPG.Helpers
 
 
                 // if some error here count -1
-                if (choice < list.Count && choice > 0)
-                 {
+                if (choice < list.Count && choice > 0 || choice == 0 && list.Count > 0)
+                {
                     return list[choice];
                 }
                 // this checks if the choice is the right number or if the count is zero if the choice is zero

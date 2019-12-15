@@ -36,12 +36,15 @@ namespace Killian_Text_RPG
                 switch (type)
                 {
                     case 1:
+                        Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLine, "Weapons: ");
                         choice = ListHelpers.PrintListGetItem(vendor.Weapon, PrintTypes.Weapon) as Weapon;
                         break;
                     case 2:
+                        Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLine, "Armor: ");
                         choice = ListHelpers.PrintListGetItem(vendor.Armor, PrintTypes.Armor) as Armor;
                         break;
                     case 3:
+                        Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLine, "Consumables: ");
                         choice = ListHelpers.PrintListGetItem(vendor.Consumable, PrintTypes.Consumable) as Consumable;
                         break;
                     case 4:

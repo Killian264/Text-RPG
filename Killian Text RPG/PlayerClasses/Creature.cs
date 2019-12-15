@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Killian_Text_RPG
 {
+    // Base class for all enemies and playable characters
 	public abstract class Creature
 	{
         public int Constitution { get; protected set; }

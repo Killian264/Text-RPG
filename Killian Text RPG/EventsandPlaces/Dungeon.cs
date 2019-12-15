@@ -43,6 +43,13 @@ namespace Killian_Text_RPG.Events
                     if (!Combat.Enter(player, dungeonLevel)) 
                         return;
 
+                    // if game is beat
+                    if(dungeonLevel == 9)
+                    {
+                        Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLineWithContinue, "Congratulations you beat the game and saved the town and even got 10000 gold pieces. You can continue to play if you want but this is the end of the story.");
+                        Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLineWithContinue, "You leave the dungeon and make your way back to town.");
+                    }
+
                     if (!AfterCombatChoices(player))
                         return;
 

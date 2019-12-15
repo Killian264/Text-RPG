@@ -7,15 +7,7 @@ namespace Killian_Text_RPG
 {
 	public class Dwarf : Player
 	{
-		public void Block()
-		{
-			throw new NotImplementedException();
-		}
 
-		public void Bash()
-		{
-			throw new NotImplementedException();
-		}
         protected Dwarf()
         {
             // Dwarf Bonuses 
@@ -28,6 +20,7 @@ namespace Killian_Text_RPG
         {
             new Player(player, that);
             Type = "Dwarf";
+            ClassSpells.Add(new Spell("Shield Bash", "Blunt Attack", 6, 0, 0, "Dexterity", 100, "You slam your dwarven shield into the enemy and it ", "A simple attack every Dwarf learns in school to quickly push back and enemy and deal damage."));
         }
     }
 }

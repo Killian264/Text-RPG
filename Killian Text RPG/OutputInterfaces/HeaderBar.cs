@@ -13,7 +13,7 @@ namespace Killian_Text_RPG.OutputInterfaces
             Console.Write("------------------------------------------------------------------------------------------------------------------------");
             Console.Write("\n");
             Console.Write("  Name: " + player.Name + "  \t  HP: " + player.CurrentHealth + "/" + player.Constitution + "  \t  Level: "+ player.Level +
-                "  \t  EXP: " + player.ExpCurrent + "/" + player.ExpNextLevel + "  \t  Class: " + player.Class + "  \t  Race: " + player.Type + " \n  ");
+                "  \t  EXP: " + player.ExpCurrent + "/" + player.ExpNextLevel + "  \t  Class: " + player.Class + "  \t  Race: " + player.Type + " \n");
             //Console.Write("\n");
             Console.Write("------------------------------------------------------------------------------------------------------------------------");
         }

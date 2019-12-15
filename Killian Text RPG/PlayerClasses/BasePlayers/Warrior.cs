@@ -12,6 +12,5 @@ namespace Killian_Text_RPG
 			set;
 		}
 
-        List<Spell> LevelUpWarrior();
     }
 }

@@ -1,6 +1,8 @@
 using Killian_Text_RPG.Helpers;
+using Killian_Text_RPG.OutputInterfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Killian_Text_RPG
@@ -14,6 +16,26 @@ namespace Killian_Text_RPG
             throw new NotImplementedException();
         }
 
+        public override void LevelUp()
+        {
+            var choices = Constants.RogueSpells.Where(spell => spell.Level == Level).ToList();
+            Interface.BasicInterfaceDelegate(this, LineHelpers.PrintLine, "Choose a new spell for this level: ");
+
+            Spell choice;
+            do
+            {
+                choice = ListHelpers.PrintListGetItem(choices, PrintTypes.SpellsInformation) as Spell;
+            }
+            while (choice == null);
+
+            ClassSpells.Add(choice);
+
+            // Warrior Level UP stats
+            Dexterity += 1;
+            Strength += 2;
+            Constitution += 5;
+
+        }
         // rogues have a 5% chance to crit and do double damage thus its overridden here
         public override int BaseAttack(Enemy enemy)
         {

@@ -9,32 +9,25 @@ namespace Killian_Text_RPG.Helpers
     {
         // these are all constants for different functions and other stuff
         // This could be saved in a json but its easier to have it here
-        //Spell(string name, string type, int damage, int cost, int level, string modifier, int modifierPercent, string useString, string description)
-        //{
-        //    Name = name;
-        //    Type = type;
-        //    Damage = damage;
-        //    Cost = cost;
-        //    Level = level;
-        //    Modifier = modifier;
-        //    ModifierPercent = modifierPercent;
-        //    UseString = useString;
-        //    Description = description;
-        //}
         public static List<Spell> WizardSpells = new List<Spell>()
         {
-            // The enemy class takes these parameters in order
-            /* 
-            1. Name 
-            2. Type
-            3. Damage 
-            4. Cost
-            5. Level
-            6. Modifier
-            7. Modifier Percent
-            8. UseString (The (attack type) (and it))
-            11. [Unrequired] Description
-            */
+            //Spell(string name, string type, int damage, int cost, int level, string modifier, int modifierPercent, string useString, string description)
+            //{
+            //    Name = name;
+            //    Type = type;
+            //    Damage = damage;
+            //    Cost = cost;
+            //    Level = level;
+            //    Modifier = modifier;
+            //    ModifierPercent = modifierPercent;
+            //    UseString = useString;
+            //    Description = description;
+            //}
+            // Spell descriptions wont matter now but if later I wanted to update the game they could be used.
+            new Spell("Magic Missile", "Ranged shots", 6, 3, 0, "Intelligence", 40, "You shoot a missile and it ", "An entry level combat spell that allows a user to shoot from a distance and deal good damage."),
+            new Spell("Frost beam", "Ranged beam", 8, 4, 1, "Intelligence", 40, "You shoot a beam of frost and it ", "An entry level combat spell that allows a user to shoot from a distance hitting multiple enemies."),
+            new Spell("Acid Arrow", "Ranged arrow", 12, 5, 2, "Intelligence", 30, "An acid arrow shoots from your hands and it ", "A spell capable of dealing decent damage and burning the enemy over time"),
+            new Spell("Fireball", "Fireball", 18, 7, 3, "Intelligence", 50, "A massive ball of fire shoots from your hands and it ", "A spell capable of dealing massive damage to multiple enemies but is costly on the user."),
         };
         public static List<Spell> WarriorSpells = new List<Spell>()
         {
@@ -50,6 +43,9 @@ namespace Killian_Text_RPG.Helpers
             8. UseString (The (attack type) (and it))
             11. [Unrequired] Description
             */
+            new Spell("Charge", "Rush Attack", 8, 0, 1, "Strength", 50, "You charge at the enemy and ready your weapon for an attack and it ", "An entry level ability allowing the user to close a distance quickly and get an attack off at the same time."),
+            new Spell("Overhead Strike", "Overhead Attack", 14, 0, 2, "Strength", 50, "You pull your weapon behind your head and with all your strength you slam down on the enemeny and it ", "A strong attack for new heroes."),
+            new Spell("Charged Attack", "Charge Attack", 24, 0, 1, "Strength", 70, "You pull back your weapon and move forward while letting it go and it ", "An attack focused on pure damage."),
         };
         public static List<Spell> RogueSpells = new List<Spell>()
         {
@@ -65,6 +61,9 @@ namespace Killian_Text_RPG.Helpers
             8. UseString (The (attack type) (and it))
             11. [Unrequired] Description
             */
+            new Spell("Rush", "Rush Attack", 6, 0, 1, "Strength", 60, "You rush at the enemy and ready your weapon for an attack and it", "An entry level ability allowing the user to close a distance quickly and get an attack off at the same time."),
+            new Spell("Disappearing Strike", "Rush Attack", 8, 0, 2, "Strength", 60, "You throw down a smokebomb and disappear into the smoke you move towards the enemy, you swing and it ", "A ability allowing the user to close a the distance to an enemy and attack him before he can even see you."),
+            new Spell("BackStab", "Precision Attack", 16, 0, 3, "Strength", 90, "You throw down a smokebomb and disappear into the smoke you move towards the enemy you jump over him and you swing and it ", "A higher level ability only used by the best Rogues and Assassins."),
         };
 
 
@@ -152,7 +151,7 @@ namespace Killian_Text_RPG.Helpers
                 "The troll falls and slams into the ground in a cloud of dust. You move around it and check that its dead before moving on."),
 
             new Enemy("Troll Warlord", "Troll",
-                60, 9, 16, 20, 300,
+                60, 9, 16, 20, 10300,
                 "The troll swings its mighty greataxe and ",
                 "You walk into a huge room with tables covered in bodies of humans and creatures alike. You see a large throne at the end of the room with a Troll the size of an elephant standing next to it. It turns to you and smiles. \"Lunch is here\" ",
                 "The great troll falls onto one knee and you run forward and slam its head into its greataxe killing it."),

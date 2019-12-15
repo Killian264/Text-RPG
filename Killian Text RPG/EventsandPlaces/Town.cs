@@ -11,7 +11,7 @@ namespace Killian_Text_RPG.Events
     {
         public static void Enter(Player player)
         {
-            Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLineWithContinue, "Add story about town here............................................");
+            Interface.BasicInterfaceDelegate(player, LineHelpers.PrintLineWithContinue, "The town is vibrant and people are walking around and trading freely but you sense an air of worry.");
 
             while(true) { 
                 // A simple switch to check what the player wants to do. this could and probably should be just a while loop 

@@ -1,6 +1,8 @@
 using Killian_Text_RPG.Helpers;
+using Killian_Text_RPG.OutputInterfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Killian_Text_RPG
@@ -12,6 +14,27 @@ namespace Killian_Text_RPG
         public List<Spell> LevelUpWarrior()
         {
             throw new NotImplementedException();
+        }
+
+        public override void LevelUp()
+        {
+            var choices = Constants.WarriorSpells.Where(spell => spell.Level == Level).ToList();
+            Interface.BasicInterfaceDelegate(this, LineHelpers.PrintLine, "Choose a new spell for this level: ");
+
+            Spell choice;
+            do
+            {
+                choice = ListHelpers.PrintListGetItem(choices, PrintTypes.SpellsInformation) as Spell;
+            }
+            while (choice == null);
+
+            ClassSpells.Add(choice);
+
+            // Warrior Level UP stats
+            Dexterity += 1;
+            Strength += 1;
+            Constitution += 8;
+
         }
 
         // warriors have a 5% block chance and thus the takedamage is overridden

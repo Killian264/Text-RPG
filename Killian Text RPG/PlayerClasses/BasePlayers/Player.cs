@@ -48,13 +48,17 @@ namespace Killian_Text_RPG
                         damage = this.BaseAttack(enemy);
                         break;
                     case 2:
+                        Interface.BasicInterfaceDelegate(this, LineHelpers.PrintLine, "Spells: ");
                         Spell spell = ListHelpers.PrintListGetItem(ClassSpells, PrintTypes.Spell) as Spell;
                         if (spell != null) 
                         { 
-                            damage = spell.Use(this, enemy.Name); 
+                            damage = enemy.TakeDamage(spell.Use(this, enemy.Name));
+                            LineHelpers.PrintLineWithContinue(GetAttackString(damage) +  enemy.Name);
+                            return;
                         }
                         break;
                     case 3:
+                        Interface.BasicInterfaceDelegate(this, LineHelpers.PrintLine, "Consumables: ");
                         Consumable consumable = ListHelpers.PrintListGetItem(Consumables, PrintTypes.Consumable) as Consumable;
                         if(consumable != null)
                         {
@@ -66,7 +70,7 @@ namespace Killian_Text_RPG
             }
 
             // I may want to decouple this later 
-            AttackString(enemy.TakeDamage(damage), enemy.Name);
+            AttackStringBuilder(enemy.TakeDamage(damage), enemy.Name);
 
             //return damage;
         }
@@ -94,20 +98,25 @@ namespace Killian_Text_RPG
             damage *= (Strength / 12);
             return damage;
         }
-        // Note this should be deleted later in favor of a more robust system
-        private void AttackString(int damage, string enemyName)
+        private string GetAttackString(int damage)
         {
-            // this builds the attack string note that string is immutable StringBuilder would most likly be a better option here
-            string attackState = "--did'nt round up fix Player.AttackString--";
-            if (damage < 3) attackState = "grazes the";
+            if (damage < 3) return "grazes the";
 
             damage /= 3;
-            if (damage == 1) attackState = "cuts you.";
-            if (damage == 2) attackState = "hits the ";
-            if (damage == 3) attackState = "slams into the ";
-            if (damage > 3) attackState = "crushes the ";
+            if (damage == 1) return "cuts you.";
+            if (damage == 2) return "hits the ";
+            if (damage == 3) return "slams into the ";
+            if (damage > 3) return "crushes the ";
 
-            LineHelpers.PrintLineWithContinue(("You swing your " + this.CurrentWeapon.Name + " and it " + attackState + enemyName + "."));
+            return "--did'nt round up fix Player.AttackString--";
+        }
+
+        // Note this should be deleted later in favor of a more robust system
+        private void AttackStringBuilder(int damage, string enemyName)
+        {
+            // this builds the attack string note that string is immutable StringBuilder would most likly be a better option here
+
+            LineHelpers.PrintLineWithContinue(("You swing your " + this.CurrentWeapon.Name + " and it " + GetAttackString(damage) + enemyName + "."));
         }
         public void KillEnemy(int gold, int exp)
         {
@@ -117,7 +126,9 @@ namespace Killian_Text_RPG
 
             if(ExpCurrent >= ExpNextLevel)
             {
-                var extraExp = ExpCurrent - ExpNextLevel; 
+                LineHelpers.PrintLineWithContinue("You leveled up...");
+                var extraExp = ExpCurrent - ExpNextLevel;
+                Level++;
                 this.LevelUp();
                 ExpCurrent = extraExp;
                 // note this is where next exp is set but later this could be made by some calculation like ExpNextLevel *= 1.30 + 500 or something like that.
@@ -152,9 +163,11 @@ namespace Killian_Text_RPG
                         choice = ListHelpers.PrintListGetItem(this.Weapons, PrintTypes.Weapon) as Weapon;
                         break;
                     case 2:
+                        Interface.BasicInterfaceDelegate(this, LineHelpers.PrintLine, "Armor: ");
                         choice = ListHelpers.PrintListGetItem(this.Armor, PrintTypes.Armor) as Armor;
                         break;
                     case 3:
+                        Interface.BasicInterfaceDelegate(this, LineHelpers.PrintLine, "Consumables: ");
                         choice = ListHelpers.PrintListGetItem(this.Consumables, PrintTypes.Consumable) as Consumable;
                         break;
                     default:

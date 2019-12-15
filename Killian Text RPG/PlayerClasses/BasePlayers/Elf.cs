@@ -7,10 +7,6 @@ namespace Killian_Text_RPG
 {
 	public class Elf : Player
 	{
-		public void QuickStab()
-		{
-			throw new NotImplementedException();
-		}
 
         protected Elf()
         {
@@ -24,6 +20,7 @@ namespace Killian_Text_RPG
         {
             new Player(player, that);
             Type = "Elf";
+            ClassSpells.Add(new Spell("Quick Stab", "Stabbing", 6, 0, 0, "Strength", 100, "You extend your arm as fast as a snake would attack and lunge at the enemy and you ", "A simple attack that allows you to get a quick blow out of an unsuspecting enemy."));
         }
     }
 }
