@@ -33,7 +33,8 @@ namespace Killian_Text_RPG.Helpers
                  {
                     return list[choice];
                 }
-                if (choice == list.Count) return null;
+                // this checks if the choice is the right number or if the count is zero if the choice is zero
+                if (choice == list.Count || list.Count == 0 && choice == 0) return null;
             }
         }
 

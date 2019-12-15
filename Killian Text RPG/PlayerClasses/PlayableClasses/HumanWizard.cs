@@ -14,10 +14,6 @@ namespace Killian_Text_RPG
             throw new NotImplementedException();
         }
 
-        public void PenetratingAttack()
-		{
-			throw new NotImplementedException();
-		}
         public HumanWizard(string name)
         {
             Name = name;

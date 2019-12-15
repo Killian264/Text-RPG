@@ -15,11 +15,13 @@ namespace Killian_Text_RPG.Events
             // new random is init here but you could make a variable instead and use that.
             Enemy enemy = enemyChoices[new Random().Next(enemyChoices.Count())];
 
+            enemy.Encounter();
+
             // Player attacks first
             player.Attack(enemy);
 
             // While enemy not dead
-            while (enemy.IsDead())
+            while (!enemy.IsDead())
             {
                 enemy.Attack(player);
 

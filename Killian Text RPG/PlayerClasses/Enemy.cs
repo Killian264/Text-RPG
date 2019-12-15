@@ -18,7 +18,7 @@ namespace Killian_Text_RPG
 		{
             // this most likly would need to be tweaked or needed exp per level would need to rise by 30% per level 
             // I may want to make this a field later
-            int rewardExp = (Level * 30) * 2;
+            int rewardExp = (Level * 100);
             player.KillEnemy(RewardGold, rewardExp);
             LineHelpers.PrintLineWithContinue(DeathString);
             LineHelpers.PrintLineWithContinue("You gain " + RewardGold + " Gold and " + rewardExp + " Exp.");
@@ -33,16 +33,19 @@ namespace Killian_Text_RPG
         {
             // see comment about player attack string builder
             string attackState = "--did'nt round up fix Enemy.AttackStringBuilder--";
-            if (damage <= 0) attackState = "misses you.";
-
-            damage /= 3;
-            if (damage == 1) attackState = "grazes you.";
-            if (damage == 2) attackState = "hits you.";
-            if (damage == 3) attackState = "slams into you.";
-            if (damage > 3) attackState = "crushes you.";
+            if (damage < 3) attackState = "grazes you.";
+            else
+            {
+                damage /= 3;
+                if (damage == 1) attackState = "cuts you.";
+                if (damage == 2) attackState = "hits you.";
+                if (damage == 3) attackState = "slams into you.";
+                if (damage > 3) attackState = "crushes you.";
+                damage *= 3;
+            }
 
             LineHelpers.PrintLineWithContinue(AttackString + attackState);
-            LineHelpers.PrintLineWithContinue("You take " + (damage * 3) + " damage.");
+            LineHelpers.PrintLineWithContinue("You take " + damage + " damage.");
         }
         public void Encounter()
         {
@@ -54,6 +57,7 @@ namespace Killian_Text_RPG
             Name = name;
             Type = type;
             Constitution = health;
+            CurrentHealth = Constitution;
             Level = level;
             BaseAttackDamage = attackDamage;
             Defence = defence;

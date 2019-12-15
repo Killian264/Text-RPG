@@ -10,19 +10,28 @@ namespace Killian_Text_RPG
         // 
         public int BlockChance { get; set; } = 5;
 
-        public void Block()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void Bash()
-		{
-			throw new NotImplementedException();
-		}
-
         public List<Spell> LevelUpWarrior()
         {
             throw new NotImplementedException();
+        }
+        // warriors have a 5% block chance and thus the takedamage is overridden
+        public override int TakeDamage(int damage)
+        {
+            if(new Random().Next(0, 5) == 5) 
+            {
+                LineHelpers.PrintLine("You block the attack and take no damage. \n");
+                return 0; 
+            }
+            if (Convert.ToInt32(damage * .7) < Defence)
+            {
+                int ret = Convert.ToInt32(damage * .3);
+                CurrentHealth -= ret;
+                return ret;
+            }
+
+            damage -= Defence;
+            CurrentHealth -= damage;
+            return damage;
         }
 
         public DwarfWarrior(string name)

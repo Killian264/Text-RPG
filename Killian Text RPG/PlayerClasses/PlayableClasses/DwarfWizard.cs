@@ -9,16 +9,6 @@ namespace Killian_Text_RPG
 	{
         public int SpellPoints { get; set; }
 
-        public void Block()
-		{
-			throw new NotImplementedException();
-		}
-
-		public void Bash()
-		{
-			throw new NotImplementedException();
-		}
-
         public List<Spell> LevelUpMage()
         {
             throw new NotImplementedException();

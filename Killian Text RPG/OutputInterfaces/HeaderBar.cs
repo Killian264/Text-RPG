@@ -6,7 +6,7 @@ namespace Killian_Text_RPG.OutputInterfaces
 {
     class Interface
     {
-        //public static void BasicInterface(Player player)
+        // These are the interfaces shown at the top of the screen
         public static void BasicInterface(Player player)
         {
             Console.Clear();
@@ -37,6 +37,8 @@ namespace Killian_Text_RPG.OutputInterfaces
             Console.Write("\n");
             Console.Write("------------------------------------------------------------------------------------------------------------------------");
         }
+
+        // These functions and delegates should work with some of the LineHelper thingies but can be expanded later if needed
         public delegate void Function(string line);
         public static void BasicInterfaceDelegate(Player player, Function f, string line)
         {

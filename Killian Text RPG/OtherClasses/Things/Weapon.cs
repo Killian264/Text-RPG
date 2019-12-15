@@ -10,10 +10,9 @@ namespace Killian_Text_RPG
 		public int MinDamage { get; }
         public int MaxDamage { get; }
 
-        public Weapon(string name, string description, int minDamage, int maxDamage, int id, int cost)
+        public Weapon(string name, string description, int minDamage, int maxDamage, int cost)
         {
             Name = name;
-            this.ID = id;
             MinDamage = minDamage;
             MaxDamage = maxDamage;
             Description = description;

@@ -14,10 +14,6 @@ namespace Killian_Text_RPG
             throw new NotImplementedException();
         }
 
-        public void QuickStab()
-		{
-			throw new NotImplementedException();
-		}
         public ElfWizard(string name)
         {
             Name = name;

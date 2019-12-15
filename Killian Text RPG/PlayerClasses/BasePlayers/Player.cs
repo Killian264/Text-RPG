@@ -99,10 +99,10 @@ namespace Killian_Text_RPG
         {
             // this builds the attack string note that string is immutable StringBuilder would most likly be a better option here
             string attackState = "--did'nt round up fix Player.AttackString--";
-            if (damage <= 0) attackState = "misses the ";
+            if (damage < 3) attackState = "grazes the";
 
             damage /= 3;
-            if (damage == 1) attackState = "grazes the ";
+            if (damage == 1) attackState = "cuts you.";
             if (damage == 2) attackState = "hits the ";
             if (damage == 3) attackState = "slams into the ";
             if (damage > 3) attackState = "crushes the ";
@@ -265,8 +265,8 @@ namespace Killian_Text_RPG
             Gold = 20;
 
             // Object init
-            CurrentWeapon = new Weapon("Fists", "No weapon.", 1, 3, 0, 1);
-            CurrentArmor = new Armor("Wool Shirt", "A wool shirt.", 1, 0, 1);
+            CurrentWeapon = new Weapon("Fists", "No weapon.", 1, 3, 1);
+            CurrentArmor = new Armor("Wool Shirt", "A wool shirt.", 1, 1);
             Weapons = new List<Weapon>();
             Armor = new List<Armor>();
             Consumables = new List<Consumable>();

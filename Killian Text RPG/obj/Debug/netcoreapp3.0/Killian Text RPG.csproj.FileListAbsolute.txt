@@ -11,3 +11,16 @@ C:\Users\Killian\Desktop\yee\Text-RPG-master\Killian Text RPG\obj\Debug\netcorea
 C:\Users\Killian\Desktop\yee\Text-RPG-master\Killian Text RPG\obj\Debug\netcoreapp3.0\Killian Text RPG.csproj.CopyComplete
 C:\Users\Killian\Desktop\yee\Text-RPG-master\Killian Text RPG\obj\Debug\netcoreapp3.0\Killian Text RPG.dll
 C:\Users\Killian\Desktop\yee\Text-RPG-master\Killian Text RPG\obj\Debug\netcoreapp3.0\Killian Text RPG.pdb
+C:\Users\Killian\Desktop\Current Projects\Text RPG\Killian Text RPG\bin\Debug\netcoreapp3.0\Killian Text RPG.exe
+C:\Users\Killian\Desktop\Current Projects\Text RPG\Killian Text RPG\bin\Debug\netcoreapp3.0\Killian Text RPG.deps.json
+C:\Users\Killian\Desktop\Current Projects\Text RPG\Killian Text RPG\bin\Debug\netcoreapp3.0\Killian Text RPG.runtimeconfig.json
+C:\Users\Killian\Desktop\Current Projects\Text RPG\Killian Text RPG\bin\Debug\netcoreapp3.0\Killian Text RPG.runtimeconfig.dev.json
+C:\Users\Killian\Desktop\Current Projects\Text RPG\Killian Text RPG\bin\Debug\netcoreapp3.0\Killian Text RPG.dll
+C:\Users\Killian\Desktop\Current Projects\Text RPG\Killian Text RPG\bin\Debug\netcoreapp3.0\Killian Text RPG.pdb
+C:\Users\Killian\Desktop\Current Projects\Text RPG\Killian Text RPG\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+C:\Users\Killian\Desktop\Current Projects\Text RPG\Killian Text RPG\obj\Debug\netcoreapp3.0\Killian Text RPG.csprojAssemblyReference.cache
+C:\Users\Killian\Desktop\Current Projects\Text RPG\Killian Text RPG\obj\Debug\netcoreapp3.0\Killian Text RPG.AssemblyInfoInputs.cache
+C:\Users\Killian\Desktop\Current Projects\Text RPG\Killian Text RPG\obj\Debug\netcoreapp3.0\Killian Text RPG.AssemblyInfo.cs
+C:\Users\Killian\Desktop\Current Projects\Text RPG\Killian Text RPG\obj\Debug\netcoreapp3.0\Killian Text RPG.csproj.CopyComplete
+C:\Users\Killian\Desktop\Current Projects\Text RPG\Killian Text RPG\obj\Debug\netcoreapp3.0\Killian Text RPG.dll
+C:\Users\Killian\Desktop\Current Projects\Text RPG\Killian Text RPG\obj\Debug\netcoreapp3.0\Killian Text RPG.pdb

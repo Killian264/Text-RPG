@@ -14,10 +14,18 @@ namespace Killian_Text_RPG
             throw new NotImplementedException();
         }
 
-        public void QuickStab()
-		{
-			throw new NotImplementedException();
-		}
+        // rogues have a 5% chance to crit and do double damage thus its overridden here
+        public override int BaseAttack(Enemy enemy)
+        {
+            // damage is added here for a base attack this will be overridden for the Rogue class
+            int weaponDps = new Random().Next(CurrentWeapon.MinDamage, CurrentWeapon.MaxDamage);
+            int damage = BaseAttackDamage + weaponDps;
+            damage *= (Strength / 12);
+
+            damage = new Random().Next(0, 5) == 5 ? damage * 2 : damage;
+
+            return damage;
+        }
         public ElfRogue(string name)
         {
             Name = name;

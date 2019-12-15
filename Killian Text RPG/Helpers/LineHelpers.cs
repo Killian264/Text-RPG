@@ -12,6 +12,7 @@ namespace Killian_Text_RPG.Helpers
         static readonly int speed = 10;
 
         // These are the line helpers and should be used instead of the Console Library
+        // Many of these can be used by passing the function to the HeaderBar.cs functions that use delegates
         public static void AnyKeyToContinue()
         {
             Print("\n");
@@ -63,6 +64,7 @@ namespace Killian_Text_RPG.Helpers
 
         public static int ReadInputNumber(int[] possibleInputs)
         {
+            // User input key is read as ConsoleKeyInfo a class 
             ConsoleKeyInfo UserInput;
             int input;
             do

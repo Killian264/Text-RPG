@@ -9,10 +9,9 @@ namespace Killian_Text_RPG
 	{
         public int HealAmount { get; }
 
-        public Consumable(string name, string description, int healAmount, int id, int cost)
+        public Consumable(string name, string description, int healAmount, int cost)
         {
             Name = name;
-            this.ID = id;
             HealAmount = healAmount;
             Description = description;
             Cost = cost;

@@ -18,6 +18,7 @@ namespace Killian_Text_RPG
         public List<Consumable> Consumable { get; } = Constants.Consumables;
 
 
+        // this could be built out later to have multiple vendors and an actual constructor but for now this is fine as there is only one shop
         public Vendor()
         {
             return;
